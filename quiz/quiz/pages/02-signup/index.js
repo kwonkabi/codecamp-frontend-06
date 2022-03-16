@@ -23,10 +23,10 @@ export default function SignupPage() {
   const [auth, setAuth] = useState("000000");
   const [email, setEmail] = useState();
   const [pw1, setPw1] = useState();
-  const [pw2, setPw2] = usestate();
+  const [pw2, setPw2] = useState();
   const [emailError, setEmailError] = useState();
   const [pw1Error, setPw1Error] = useState();
-  const [pw2Error, setPw2Error] = usestate();
+  const [pw2Error, setPw2Error] = useState();
   
   const onClickHello = () => {
     if (hello === "안녕하세요") {
@@ -59,17 +59,17 @@ export default function SignupPage() {
   const onClickSignup = () => {
     if (email.includes !== "@") {
       setEmailError("이메일 형식을 확인해주세요.")
+    } else {
+      setEmailError("");
     }
     if (pw1 !== pw2) {
       setPw1Error("비밀번호를 확인해주세요.");
       setPw2Error("비밀번호를 확인해주세요.");
+    } else {
+      setPw1Error("");
+      setPw2Error("");
     }
-    setEmailError("");
-    setPw1Error("");
-    setPw2Error("");
   };
-
-
 
   return (
     <OuterBox>
