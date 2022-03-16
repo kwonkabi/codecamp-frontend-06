@@ -110,23 +110,23 @@ export default function BoardsNewPage(){
       <WriterWrapper>
         <InputWrapper>
           <Label>작성자</Label>
-          <Writer type="text" onChange={onChangeWriter} />{writer}
+          <Writer type="text" onChange={onChangeWriter} />
           <WriterError>{writerError}</WriterError>
         </InputWrapper>
         <InputWrapper>
           <Label>비밀번호</Label>
-          <Password type="password" onChange={onChangePassword} />{password}
+          <Password type="password" onChange={onChangePassword} />
           <PasswordError>{passwordError}</PasswordError>
         </InputWrapper>
       </WriterWrapper>
       <InputWrapper>
         <Label>제목</Label>
-        <Subject type="text" onChange={onChangeSubject} />{subject}
+        <Subject type="text" onChange={onChangeSubject} />
         <SubjectError>{subjectError}</SubjectError>
       </InputWrapper>
       <InputWrapper>
         <Label>내용</Label>
-        <Contents onChange={onChangeContents} />{contents}
+        <Contents onChange={onChangeContents} />
         <ContentsError>{contentsError}</ContentsError>
       </InputWrapper>
       <InputWrapper>
@@ -135,14 +135,14 @@ export default function BoardsNewPage(){
           <Zipcode placeholder="07250" />
           <SearchButton>우편번호 검색</SearchButton>
         </ZipcodeWrapper>
-        <Address onChange={onChangeAddress}/>{address}
+        <Address onChange={onChangeAddress}/>
         <AddressError>{addressError}</AddressError>
-        <Address onChange={onChangeAddress}/>{address}
+        <Address onChange={onChangeAddress}/>
         <AddressError>{addressError}</AddressError>
       </InputWrapper>
       <InputWrapper>
         <Label>유튜브</Label>
-        <Youtube onChange={onChangeYoutube} />{youtube}
+        <Youtube onChange={onChangeYoutube} />
         <YoutubeError>{youtubeError}</YoutubeError>
       </InputWrapper>
       <ImageWrapper>

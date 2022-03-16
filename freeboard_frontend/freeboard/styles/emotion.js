@@ -200,3 +200,17 @@ export const SubmitButton = styled.button`
   margin-left: 12px;
   margin-right: 12px;
 `;
+
+
+// export const {WriterError, PasswordError} = styled.input`
+//   width: 486px;
+//   height: 30px;
+//   color: red;
+// `
+
+
+// export const {SubjectError, ContentsError, AddressError, YoutubeError} = styled.input`
+//   width: 996px;
+//   height: 30px;
+//   color: red;
+// `
