@@ -22,12 +22,7 @@ import {
   RadioLabel,
   ButtonWrapper,
   SubmitButton,
-  WriterError,
-  PasswordError,
-  SubjectError,
-  ContentsError,
-  AddressError,
-  YoutubeError
+  Error
 } from '../../../styles/emotion'
 
 export default function BoardsNewPage(){
@@ -111,23 +106,23 @@ export default function BoardsNewPage(){
         <InputWrapper>
           <Label>작성자</Label>
           <Writer type="text" onChange={onChangeWriter} />
-          <WriterError>{writerError}</WriterError>
+          <Error>{writerError}</Error>
         </InputWrapper>
         <InputWrapper>
           <Label>비밀번호</Label>
           <Password type="password" onChange={onChangePassword} />
-          <PasswordError>{passwordError}</PasswordError>
+          <Error>{passwordError}</Error>
         </InputWrapper>
       </WriterWrapper>
       <InputWrapper>
         <Label>제목</Label>
         <Subject type="text" onChange={onChangeSubject} />
-        <SubjectError>{subjectError}</SubjectError>
+        <Error>{subjectError}</Error>
       </InputWrapper>
       <InputWrapper>
         <Label>내용</Label>
         <Contents onChange={onChangeContents} />
-        <ContentsError>{contentsError}</ContentsError>
+        <Error>{contentsError}</Error>
       </InputWrapper>
       <InputWrapper>
         <Label>주소</Label>
@@ -136,14 +131,14 @@ export default function BoardsNewPage(){
           <SearchButton>우편번호 검색</SearchButton>
         </ZipcodeWrapper>
         <Address onChange={onChangeAddress}/>
-        <AddressError>{addressError}</AddressError>
+        <Error>{addressError}</Error>
         <Address onChange={onChangeAddress}/>
-        <AddressError>{addressError}</AddressError>
+        <Error>{addressError}</Error>
       </InputWrapper>
       <InputWrapper>
         <Label>유튜브</Label>
         <Youtube onChange={onChangeYoutube} />
-        <YoutubeError>{youtubeError}</YoutubeError>
+        <Error>{youtubeError}</Error>
       </InputWrapper>
       <ImageWrapper>
         <Label>사진첨부</Label>
