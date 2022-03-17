@@ -104,6 +104,14 @@ export const Address = styled.input`
   border: 1px solid #bdbdbd;
 `;
 
+export const AddressDetail = styled.input`
+  width: 996px;
+  height: 52px;
+  margin-top: 16px;
+  padding-left: 16px;
+  border: 1px solid #bdbdbd;
+`;
+
 export const Youtube = styled.input`
   width: 996px;
   height: 52px;
