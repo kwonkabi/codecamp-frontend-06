@@ -3,20 +3,14 @@ import {useMutation, gql} from '@apollo/client'
 
 const CREATE_PRODUCT = gql`
   mutation createProduct(
-    $seller: String
-    ){
-    createProductInput(
-      name: String,
-      detail: String,
-      price: Int
-    ){
+    $seller: String, $createProductInput: CreateProductInput!){
+      createProduct(seller: $seller, createProductInput: $createProductInput){
       _id
       number
       message
     }
   }
 `
-
 
 const BoardMutationPage= () => {
   
@@ -25,11 +19,18 @@ const BoardMutationPage= () => {
   const [detail, setDetail] = useState("")
   const [price, setPrice] = useState("")
 
-  const [callApi] = useMutation(CREATE_PRODUCT)
+  const [callProduct] = useMutation(CREATE_PRODUCT)
 
   const onClickRequest = async () => {
-    const result = await callApi({
-      variables: { $seller: seller, name: name, detail: detail, price: price}
+    const result = await callProduct({
+      variables: {
+        seller: seller,
+        createProductInput:{
+          name: name,
+          detail: detail,
+          price: Number(price)// parseInt(price)
+        }
+      }
     })
     console.log(result)
     console.log(result.data.createProduct._id)

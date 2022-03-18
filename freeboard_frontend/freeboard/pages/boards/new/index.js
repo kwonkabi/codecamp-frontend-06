@@ -157,7 +157,6 @@ const BoardsNewPage = () => {
     const value = event.target.value;
     setZipcode(value);
   };
-
   const onChangeAddress = (event) => {
     const value = event.target.value;
     setAddress(value);
