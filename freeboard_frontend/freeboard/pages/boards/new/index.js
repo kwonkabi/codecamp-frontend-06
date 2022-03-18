@@ -113,28 +113,27 @@ const BoardsNewPage = () => {
       address !== "" &&
       addressDetail !== "" &&
       youtube !== ""){
-        alert("게시물이 등록되었습니다.")
-      }
-
-    const result = await createBoard({
-      variables: {
-        createBoardInput: {
-          writer: writer,
-          password: password,
-          title: subject,
-          contents: contents,
-          youtubeUrl: youtube,
-          boardAddress: {
-            zipcode: zipcode,
-            address: address,
-            addressDetail: addressDetail
-          },
-          // images: [images]
+      alert("게시물이 등록되었습니다.")
+      const result = await createBoard({
+        variables: {
+          createBoardInput: {
+            writer: writer,
+            password: password,
+            title: subject,
+            contents: contents,
+            youtubeUrl: youtube,
+            boardAddress: {
+              zipcode: zipcode,
+              address: address,
+              addressDetail: addressDetail
+            },
+            // images: [images]
+          }
         }
-      }
-    })
-    console.log(result)
-    console.log(result.data.createBoard._id)
+      }) 
+      console.log(result)
+      console.log(result.data.createBoard._id)
+    }
   }
 
   const onChangeWriter = (event) => {

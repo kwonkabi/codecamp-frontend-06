@@ -38,7 +38,6 @@ export default function GraphqlMutationPage(){
     } catch (error){
       alert (error.message)
     }
-    
   }
   
   const onChangeWriter = (event) => {
