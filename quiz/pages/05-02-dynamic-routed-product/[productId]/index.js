@@ -28,7 +28,7 @@ const FetchProductPage = () => {
   return (
     <>
       {/* jsx 삼항연산자 */}
-      {(data) ? 
+      {(data) ?
         <div>
           <div>판매자: {data?.fetchProduct.seller}</div>
           <div>상품명: {data?.fetchProduct.name}</div>
@@ -37,7 +37,7 @@ const FetchProductPage = () => {
           <div>작성일: {data?.fetchProduct.createdAt}</div>
         </div> :
         <div>loading...</div>
-      } 
+      }
     </>
   )
 }
