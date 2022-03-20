@@ -1,34 +1,12 @@
 import { useState } from 'react';
 import { useMutation, gql } from '@apollo/client'
-
+import { useRouter } from 'next/router'
 
 import {
-  Wrapper,
-  Title,
-  WriterWrapper,
-  Writer,
-  Password,
-  Label,
-  InputWrapper,
-  Subject,
-  Contents,
-  ZipcodeWrapper,
-  Zipcode,
-  SearchButton,
-  Address,
-  AddressDetail,
-  Youtube,
-  ImageWrapper,
-  UploadButton,
-  OptionWrapper,
-  RadioButton,
-  RadioLabel,
-  ButtonWrapper,
-  SubmitButton,
-  Error
-} from '../../../styles/emotion'
+  Wrapper, Title, WriterWrapper, Writer, Password, Label, InputWrapper, Subject, Contents, ZipcodeWrapper, Zipcode, SearchButton, Address, AddressDetail, Youtube, ImageWrapper, UploadButton, OptionWrapper, RadioButton, RadioLabel, ButtonWrapper, SubmitButton, Error
+} from '../../../styles/routing'
 
-const CREATE_BOARD = gql`
+export const CREATE_BOARD = gql`
   mutation createBoard($createBoardInput: CreateBoardInput!){
     createBoard(createBoardInput: $createBoardInput){
       _id
@@ -40,7 +18,9 @@ const CREATE_BOARD = gql`
   }
 `
 
-const BoardsNewPage = () => {
+const DynamicRoutingBoardPage = () => {
+
+  const router = useRouter()
 
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");
@@ -63,76 +43,83 @@ const BoardsNewPage = () => {
   const [createBoard] = useMutation(CREATE_BOARD)
 
   const onClickSubmit = async () => {
-    
-    if (writer === "") {
-      setWriterError("이름을 적어주세요.");
-    } else {
-      setWriterError("");
-    }
-    if (password === "") {
-      setPasswordError("비밀번호를 작성해주세요.");
-    } else {
-      setPasswordError("");
-    }
-    if (subject === "") {
-      setSubjectError("제목을 작성해주세요.");
-    } else {
-      setSubjectError("");
-    }
-    if (contents === "") {
-      setContentsError("내용을 작성해주세요.");
-    } else {
-      setContentsError("");
-    }
-    if (zipcode.length !== 5) {
-      setZipcodeError("");
-    } else {
-      setZipcodeError("");
-    }
-    if (address === "") {
-      setAddressError("주소를 작성해주세요.");
-    } else {
-      setAddressError("");
-    }
-    if (addressDetail === "") {
-      setAddressDetailError("상세 주소를 작성해주세요.");
-    } else {
-      setAddressDetailError("");
-    }
-    if (youtube === "") {
-      setYoutubeError("유튜브 링크를 작성해주세요.");
-    } else {
-      setYoutubeError("");
-    }
-    if (
-      writer !== "" && 
-      password !== "" && 
-      subject !== "" &&
-      contents !== "" && 
-      zipcode.length === 5 &&
-      address !== "" &&
-      addressDetail !== "" &&
-      youtube !== ""){
-      alert("게시물이 등록되었습니다.")
-      const result = await createBoard({
-        variables: {
-          createBoardInput: {
-            writer: writer,
-            password: password,
-            title: subject,
-            contents: contents,
-            youtubeUrl: youtube,
-            boardAddress: {
-              zipcode: zipcode,
-              address: address,
-              addressDetail: addressDetail
-            },
-            // images: [images]
+
+ 
+      if (writer === "") {
+        setWriterError("이름을 적어주세요.");
+      } else {
+        setWriterError("");
+      }
+      if (password === "") {
+        setPasswordError("비밀번호를 작성해주세요.");
+      } else {
+        setPasswordError("");
+      }
+      if (subject === "") {
+        setSubjectError("제목을 작성해주세요.");
+      } else {
+        setSubjectError("");
+      }
+      if (contents === "") {
+        setContentsError("내용을 작성해주세요.");
+      } else {
+        setContentsError("");
+      }
+      if (zipcode.length !== 5) {
+        setZipcodeError("");
+      } else {
+        setZipcodeError("");
+      }
+      if (address === "") {
+        setAddressError("주소를 작성해주세요.");
+      } else {
+        setAddressError("");
+      }
+      if (addressDetail === "") {
+        setAddressDetailError("상세 주소를 작성해주세요.");
+      } else {
+        setAddressDetailError("");
+      }
+      if (youtube === "") {
+        setYoutubeError("유튜브 링크를 작성해주세요.");
+      } else {
+        setYoutubeError("");
+      }
+      if (
+        writer !== "" &&
+        password !== "" &&
+        subject !== "" &&
+        contents !== "" &&
+        zipcode.length === 5 &&
+        address !== "" &&
+        addressDetail !== "" &&
+        youtube !== ""){
+
+      try {
+        const result = await createBoard({
+          variables: {
+            createBoardInput: {
+              writer: writer,
+              password: password,
+              title: subject,
+              contents: contents,
+              youtubeUrl: youtube,
+              boardAddress: {
+                zipcode: zipcode,
+                address: address,
+                addressDetail: addressDetail
+              },
+              // images: [images]
+            }
           }
-        }
-      }) 
-      console.log(result)
-      console.log(result.data.createBoard._id)
+        })
+        alert("게시물이 등록되었습니다.")
+        console.log(result)
+        console.log(result.data.createBoard._id)
+        router.push(`board/${result.data.createBoard._id}`)
+      } catch (error) {
+        alert (error.message)
+      }
     }
   }
 
@@ -170,7 +157,7 @@ const BoardsNewPage = () => {
   };
 
   return (
-      <Wrapper>
+    <Wrapper>
       <Title>게시판 등록</Title>
       <WriterWrapper>
         <InputWrapper>
@@ -199,6 +186,7 @@ const BoardsNewPage = () => {
         <ZipcodeWrapper>
           <Zipcode placeholder="07250" onChange={onChangeZipcode}/>
           <SearchButton>우편번호 검색</SearchButton>
+          <Error>{zipcodeError}</Error>
         </ZipcodeWrapper>
         <Address onChange={onChangeAddress}/>
         <Error>{addressError}</Error>
@@ -230,4 +218,4 @@ const BoardsNewPage = () => {
   )
 }
 
-export default BoardsNewPage
+export default DynamicRoutingBoardPage

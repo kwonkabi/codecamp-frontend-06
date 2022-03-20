@@ -78,6 +78,8 @@ export const Contents = styled.textarea`
 export const ZipcodeWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: flex-stard;
+  align-items: flex-end;
 `;
 
 export const Zipcode = styled.input`
@@ -177,4 +179,9 @@ export const SubmitButton = styled.button`
   font-weight: 500;
   margin-left: 12px;
   margin-right: 12px;
+  cursor: pointer;
 `;
+
+
+// routed page
+
