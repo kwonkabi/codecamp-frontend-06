@@ -37,12 +37,6 @@ export const Writer = styled.input`
   border: 1px solid #bdbdbd;
 `;
 
-export const Error = styled.div`
-  // width: 100%
-  height: 30px;
-  color: red;
-`
-
 export const Password = styled.input`
   width: 486px;
   height: 52px;
@@ -78,8 +72,6 @@ export const Contents = styled.textarea`
 export const ZipcodeWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-stard;
-  align-items: flex-end;
 `;
 
 export const Zipcode = styled.input`
@@ -99,14 +91,6 @@ export const SearchButton = styled.button`
 `;
 
 export const Address = styled.input`
-  width: 996px;
-  height: 52px;
-  margin-top: 16px;
-  padding-left: 16px;
-  border: 1px solid #bdbdbd;
-`;
-
-export const AddressDetail = styled.input`
   width: 996px;
   height: 52px;
   margin-top: 16px;
@@ -180,8 +164,12 @@ export const SubmitButton = styled.button`
   margin-left: 12px;
   margin-right: 12px;
   cursor: pointer;
+
+  background-color: ${(props) => (props.isActive ? "yellow" : "none")};
 `;
 
-
-// routed page
-
+export const Error = styled.div`
+  padding-top: 10px;
+  font-size: 14px;
+  color: red;
+`;
