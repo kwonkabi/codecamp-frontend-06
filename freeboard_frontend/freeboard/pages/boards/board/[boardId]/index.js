@@ -45,7 +45,7 @@ const DynamicRoutedBoardPage = () => {
 
   return (
     <>
-    {(data) ? 
+    {(data) ?
       <Wrapper>
         <WriterWrapper>
           <WriterInfo1>
@@ -57,7 +57,7 @@ const DynamicRoutedBoardPage = () => {
           </WriterInfo1>
           <WriterInfo2>
             <LocationDetail>
-              <LocationDetailTextbox></LocationDetailTextbox>
+              <LocationDetailTextbox>data?.fetchBoard.}</LocationDetailTextbox>
             </LocationDetail>
             <WriterInfo2Icon>
               <Link>

@@ -54,7 +54,7 @@ export default function BoardWrite(){
   }
 
   return (
-    <BoardWriteUI 
+    <BoardWriteUI
     onChangeWriter={onChangeWriter}
     onChangeTitle={onChangeTitle}
     onChangeContents={onChangeContents}

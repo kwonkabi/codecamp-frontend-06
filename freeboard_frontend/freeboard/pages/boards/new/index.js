@@ -41,9 +41,65 @@ const DynamicRoutingBoardPage = () => {
   const [youtubeError, setYoutubeError] = useState("");
 
   const [createBoard] = useMutation(CREATE_BOARD)
+  
+  const onChangeWriter = (event) => {
+    const value = event.target.value;
+    setWriter(value);
+    if (value !== ""){
+      setWriterError("");
+    }
+  };
+  const onChangePassword = (event) => {
+    const value = event.target.value;
+    setPassword(value);
+    if (value !== ""){
+      setPasswordError("");
+    }
+  };
+  const onChangeSubject = (event) => {
+    const value = event.target.value;
+    setSubject(value);
+    if (value !== ""){
+      setSubjectError("");
+    }
+  };
+  const onChangeContents = (event) => {
+    const value = event.target.value;
+    setContents(value);
+    if (value !== ""){
+      setContentsError("");
+    }
+  };
+  const onChangeZipcode = (event) => {
+    const value = event.target.value;
+    setZipcode(value);
+    if (value !== ""){
+      setZipcodeError("");
+    }
+  };
+  const onChangeAddress = (event) => {
+    const value = event.target.value;
+    setAddress(value);
+    if (value !== ""){
+      setAddressError("");
+    }
+  };
+  const onChangeAddressDetail = (event) => {
+    const value = event.target.value;
+    setAddressDetail(value);
+    if (value !== ""){
+      setAddressDetailError("");
+    }
+  };
+  const onChangeYoutube = (event) => {
+    const value = event.target.value;
+    setYoutube(value);
+    if (value !== ""){
+      setYoutubeError("");
+    }
+  };
 
   const onClickSubmit = async () => {
-
  
       if (writer === "") {
         setWriterError("이름을 적어주세요.");
@@ -123,38 +179,6 @@ const DynamicRoutingBoardPage = () => {
     }
   }
 
-  const onChangeWriter = (event) => {
-    const value = event.target.value;
-    setWriter(value);
-  };
-  const onChangePassword = (event) => {
-    const value = event.target.value;
-    setPassword(value);
-  };
-  const onChangeSubject = (event) => {
-    const value = event.target.value;
-    setSubject(value);
-  };
-  const onChangeContents = (event) => {
-    const value = event.target.value;
-    setContents(value);
-  };
-  const onChangeZipcode = (event) => {
-    const value = event.target.value;
-    setZipcode(value);
-  };
-  const onChangeAddress = (event) => {
-    const value = event.target.value;
-    setAddress(value);
-  };
-  const onChangeAddressDetail = (event) => {
-    const value = event.target.value;
-    setAddressDetail(value);
-  };
-  const onChangeYoutube = (event) => {
-    const value = event.target.value;
-    setYoutube(value);
-  };
 
   return (
     <Wrapper>
