@@ -15,7 +15,7 @@ const FETCH_BOARDS = gql`
 `
 
 const DELETE_BOARD = gql`
-  mutation deleteBoard($number:Int){
+  mutation deleteBoard($number: Int){
     deleteBoard(number: $number){
       message
     }
