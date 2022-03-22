@@ -1,6 +1,6 @@
-import * as S from '../read/BoardRead.style'
+import * as S from '../detail/BoardDetail.style'
 
-export default function BoardReadUI(props){
+export default function BoardDetailUI(props){
 
   return(
     <div>

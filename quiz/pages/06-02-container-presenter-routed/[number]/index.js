@@ -1,11 +1,8 @@
-import BoardRead from "../../../src/components/units/board/read/BoardRead.container"
-
+import BoardDetail from "../../../src/components/units/board/detail/BoardDetail.container"
 
 export default function DynamicRoutedPage(){
 
   return(
-    <BoardRead />
-
+    <BoardDetail />
   )
-
 }

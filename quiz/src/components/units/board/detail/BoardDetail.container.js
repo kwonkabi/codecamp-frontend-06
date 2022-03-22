@@ -1,11 +1,11 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import BoardReadUI from "./BoardRead.presenter"
-import { FETCH_BOARD } from "../read/BoardRead.queries";
+import BoardDetailUI from "./BoardDetail.presenter"
+import { FETCH_BOARD } from "../detail/BoardDetail.queries";
 
 
 
-  export default function BoardRead() {
+  export default function BoardDetail() {
     const router = useRouter();
     console.log(router);
   
@@ -18,7 +18,7 @@ import { FETCH_BOARD } from "../read/BoardRead.queries";
     console.log(data);
 
     return(
-      <BoardReadUI 
+      <BoardDetailUI 
         data = {data}
       />
     )
