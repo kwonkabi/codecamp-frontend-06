@@ -42,7 +42,7 @@ function solution(phone_number) {
 // 리팩토링 후: padStart와 slice 이용 (원본이 저장되지 않아 재할당 가능)
 function solution(phone_number){
   let answer = "";
-  
+
   // 1. 뒷 네자리를 제외한 앞의 번호들은 *로 채워준다
   answer = answer.padStart(phone_number.length - 4, '*');
 
