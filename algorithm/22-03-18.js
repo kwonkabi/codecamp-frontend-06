@@ -1,7 +1,3 @@
-//
-
-//
-
 // 27. 가장 큰 수 찾기
 function bigNum(str){
   let biggest = Number(str[0]);
