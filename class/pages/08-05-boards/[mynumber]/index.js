@@ -14,7 +14,7 @@ const FETCH_BOARD = gql`
   }
 `
 
-export default function StaticRoutedPage(){
+export default function BoardDetailPage(){
   const router = useRouter()
 
   const { data } = useQuery(FETCH_BOARD, {
@@ -40,5 +40,3 @@ export default function StaticRoutedPage(){
 
   )
 }
-
- StaticRoutedPage

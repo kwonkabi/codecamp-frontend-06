@@ -28,8 +28,6 @@ export default function BoardWrite(props){
     alert('게시글 수정에 성공하였습니다!')
   }
 
-
-
   const callGraphqlApi = async () => {
     const result = await callApi({
       variables: { writer: myWriter, title: myTitle, contents: myContents }
