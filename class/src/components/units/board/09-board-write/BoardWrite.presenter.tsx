@@ -1,13 +1,13 @@
 // 여기는 프레젠터 컴포넌트
 
 // import { SubmitButton, WriterInput } from './BoardWrite.style'
+
+import { IBoardWriteUIProps } from './BoardWrite.types'
 import * as S from './BoardWrite.style'
 
 
-export default function BoardWriteUI(props){
+export default function BoardWriteUI(props: IBoardWriteUIProps){
   // 여기는 페이지명 중요!
-
-
 
   return (
     <div>

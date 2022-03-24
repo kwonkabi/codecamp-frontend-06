@@ -1,13 +1,16 @@
 // 여기는 컨테이너 컴포넌트
 
-import { useState } from 'react'
+import { useState , ChangeEvent} from 'react'
 import { useMutation } from '@apollo/client'
 
 import BoardWriteUI from "./BoardWrite.presenter"
 import { CREATE_BOARD, UPDATE_BOARD } from './BoardWrite.queries'
 import { useRouter } from 'next/router'
 
-export default function BoardWrite(props){
+import { IBoardWriteProps } from './BoardWrite.types'
+
+
+export default function BoardWrite(props: IBoardWriteProps){
   // 여기는 페이지명 중요!
   const router = useRouter()
   const [isActive, setIsActive] = useState(false)
@@ -15,21 +18,25 @@ export default function BoardWrite(props){
   const [myWriter, setMyWriter] = useState("")
   const [myTitle, setMyTitle] = useState("")
   const [myContents, setMyContents] = useState("")
-  
+
   const [data, setData] = useState("")
   const [callApi] = useMutation(CREATE_BOARD)
   const [updateBoard] = useMutation(UPDATE_BOARD)
 
   // 변경된 부분만 뮤테이션으로 보내주기
   const onClickUpdate = async () => {
-
-    const myVariables = { number: Number(router.query.mynumber)}
+    interface IMyVariables {
+      number: number
+      writer?: string
+      title?: string
+      contents?: string
+    }
+    const myVariables: IMyVariables = { number: Number(router.query.mynumber)}
 
     // 한 줄 실행일 경우 중괄호 생략 가능
     if (myWriter !== "") myVariables.writer = myWriter
     if (myTitle !== "") myVariables.title = myTitle
     if (myContents !== "") myVariables.contents = myContents
-
 
     const result = await updateBoard({
       variables: myVariables
@@ -46,7 +53,7 @@ export default function BoardWrite(props){
     alert('게시글 등록에 성공하였습니다!')
   }
   
-  const onChangeWriter = (event) => {
+  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>) => {
     setMyWriter(event.target.value)
     if (event.target.value !== "" && myTitle !== "" && myContents !==""){
       setIsActive(true)
@@ -55,7 +62,7 @@ export default function BoardWrite(props){
     }
   }
   
-  const onChangeTitle = (event) => {
+  const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setMyTitle(event.target.value)
     if (myWriter !== "" && event.target.value !== "" && myContents !==""){
       setIsActive(true)
@@ -64,7 +71,7 @@ export default function BoardWrite(props){
     }
   }
   
-  const onChangeContents = (event) => {
+  const onChangeContents = (event: ChangeEvent<HTMLInputElement>) => {
     setMyContents(event.target.value)
     if (myWriter !== "" && myTitle !== "" && event.target.value !==""){
       setIsActive(true)
