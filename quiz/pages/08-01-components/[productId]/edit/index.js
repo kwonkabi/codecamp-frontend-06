@@ -6,5 +6,5 @@ import ProductWrite from "../../../../src/components/units/product/write/Product
 export default function ProductEditPage(){
 
   return <ProductWrite isEdit={true}/>
-  
+
 }
