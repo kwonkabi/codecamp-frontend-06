@@ -45,7 +45,7 @@ export default function TypescriptPage{
   const add = (money1: number, money2: number, unit: string): string => {
     return money1 + money2 + unit
   }
-  const resutlt = add(1000, 2000, '원')
+  const result = add(1000, 2000, '원')
 
   return <div>타입스크립트 연습하기</div>
 }
