@@ -43,7 +43,7 @@ function solution(s) {
 
 // Number.isNaN은 숫자가 맞는지 검증하고, 들어오는 인자가 숫자타임이면서 결과가 NaN값이 맞는지 검증한다. isNaN보다 엄격하게 NaN값을 검증한다. 
 
-// 3. 
+// 3. ???
 function solution(s) {
   if (s.length !== 4 && s.length !== 6){
     return false
@@ -53,6 +53,17 @@ function solution(s) {
     return isNaN(num) === true
   })
   return answer.length === 0;
+}
+
+// 4. 
+function solution(s){
+  if (s.length === 4 || s.length === 6){
+      return isNaN(s)
+      ? false
+      : true
+  } else {
+      return false
+  }
 }
 
 
@@ -74,9 +85,9 @@ function solution(n) {
 function solution(n) {
   let answer = n;
   for (let i=0; i<=n/2; i++){
-      if (n % i === 0){
-          answer += i;
-      }
+    if (n % i === 0){
+      answer += i;
+    }
   }
   return answer;
 }
