@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/components/units/board/08-board-write/BoardWrite.queries.js", "src/components/units/board/08-board-write/BoardWrite.style.js", "src/components/units/board/08-board-write/BoardWrite.container.js", "src/components/units/board/08-board-write/BoardWrite.presenter.js"  ],
   "exclude": [
     "node_modules"
   ]

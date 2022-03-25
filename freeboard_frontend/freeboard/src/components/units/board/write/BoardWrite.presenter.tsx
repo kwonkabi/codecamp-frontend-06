@@ -1,6 +1,7 @@
 import * as S from "./BoardWrite.styles";
+import { IBoardWriteUIProps } from "./BoardWrite.types";
 
-export default function BoardWriteUI(props) {
+export default function BoardWriteUI(props: IBoardWriteUIProps) {
   return (
     <S.Wrapper>
       <S.Title>{props.isEdit ? "게시판 수정" : "게시판 등록"}</S.Title>
@@ -36,6 +37,7 @@ export default function BoardWriteUI(props) {
       <S.InputWrapper>
         <S.Label>내용</S.Label>
         <S.Contents
+          type="textarea"
           placeholder="내용을 작성해주세요."
           onChange={props.onChangeContents}
         />
@@ -68,7 +70,7 @@ export default function BoardWriteUI(props) {
         <S.RadioLabel htmlFor="image">사진</S.RadioLabel>
       </S.OptionWrapper>
       <S.ButtonWrapper>
-        <S.SubmitButton 
+        <S.SubmitButton
           onClick={props.isEdit ? props.onClickUpdate : props.onClickSubmit}
           isActive={props.isEdit ? true : props.isActive}
         >
