@@ -12,13 +12,13 @@ export const FETCH_BOARD = gql`
   }
 `;
 
-export const DELETE_BOARD = gql`
-  mutation deleteBoard($boardId: ID!){
-    deleteBoard(boardId: $boardId){
+// export const DELETE_BOARD = gql`
+//   mutation deleteBoard($boardId: ID!){
+//     deleteBoard(boardId: $boardId){
 
-    }
-  }
-`
+//     }
+//   }
+// `
 
 export const FETCH_BOARDS = gql`
   query fetchBoards {
