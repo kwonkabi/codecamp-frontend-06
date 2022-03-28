@@ -1,3 +1,4 @@
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import '../styles/globals.css'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import { AppProps } from 'next/app'
