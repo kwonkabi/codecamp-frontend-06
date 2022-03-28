@@ -5,7 +5,7 @@ export default function LibraryStarPage(){
 
   const [value, setValue] = useState(3)
 
-  const handleChange = (value) => {
+  const handleChange = (value: number) => {
     setValue(value)
   };
 

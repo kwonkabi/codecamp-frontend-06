@@ -1,4 +1,4 @@
-import styled from "@emotion/styled/types/base"
+import styled from "@emotion/styled"
 import { DeleteOutlined } from "@ant-design/icons"
 
 const MyIcon = styled(DeleteOutlined)`
