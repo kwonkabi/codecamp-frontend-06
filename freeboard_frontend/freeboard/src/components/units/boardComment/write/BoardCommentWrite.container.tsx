@@ -1,32 +1,38 @@
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
-import { IMutation, IMutationCreateBoardCommentArgs } from "../../../../commons/generated/types";
+import {
+  IMutation,
+  IMutationCreateBoardCommentArgs,
+} from "../../../../commons/generated/types";
 import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
 import BoardCommentWriteUI from "./BoardCommentWrite.presenter";
 import { CREATE_BOARD_COMMENT } from "./BoardCommentWrite.queries";
 
-export default function BoardCommentWrite(){
+export default function BoardCommentWrite() {
   const router = useRouter();
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");
   const [contents, setContents] = useState("");
 
-  const [createBoardComment] = useMutation<Pick<IMutation, "createBoardComment">, IMutationCreateBoardCommentArgs>(CREATE_BOARD_COMMENT);
+  const [createBoardComment] = useMutation<
+    Pick<IMutation, "createBoardComment">,
+    IMutationCreateBoardCommentArgs
+  >(CREATE_BOARD_COMMENT);
 
-  function onChangeWriter(event: ChangeEvent<HTMLInputElement>){
-    setWriter(event.target.value)
+  function onChangeWriter(event: ChangeEvent<HTMLInputElement>) {
+    setWriter(event.target.value);
   }
 
-  function onChangePassword(event: ChangeEvent<HTMLInputElement>){
-    setPassword(event.target.value)
+  function onChangePassword(event: ChangeEvent<HTMLInputElement>) {
+    setPassword(event.target.value);
   }
 
-  function onChangeContents(event: ChangeEvent<HTMLTextAreaElement>){
-    setContents(event.target.value)
+  function onChangeContents(event: ChangeEvent<HTMLTextAreaElement>) {
+    setContents(event.target.value);
   }
 
-  async function onClickWrite(){
+  async function onClickWrite() {
     try {
       await createBoardComment({
         variables: {
@@ -36,12 +42,12 @@ export default function BoardCommentWrite(){
             contents,
             rating: 3,
           },
-          boardId: String(router.query.boardId)
+          boardId: String(router.query.boardId),
         },
         refetchQueries: [
           {
             query: FETCH_BOARD_COMMENTS,
-            variables: { boardId: router.query.boardId }
+            variables: { boardId: router.query.boardId },
           },
         ],
       });
@@ -49,17 +55,18 @@ export default function BoardCommentWrite(){
       setPassword("");
       setContents("");
     } catch (error: any) {
-      alert(error.message)
+      alert(error.message);
     }
   }
 
-  return(
+  return (
     <BoardCommentWriteUI
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
       onChangeContents={onChangeContents}
       onClickWrite={onClickWrite}
       contents={contents}
+      writer={""} // 이게 왜 필요한지?
     />
-  )
+  );
 }

@@ -10,20 +10,20 @@ export const FETCH_BOARD_COMMENTS = gql`
       rating
     }
   }
-`
+`;
 
-export const UPDATE_BOARD_COMMENT = gql`
-  mutation updateBoardComment() {
-    updatdBoardComment() {
+// export const UPDATE_BOARD_COMMENT = gql`
+//   mutation updateBoardComment() {
+//     updatdBoardComment() {
 
-    }
-  }
-`
+//     }
+//   }
+// `
 
-export const DELETE_BOARD_COMMENT = gql`
-  mutation deleteBoardComment() {
-    deleteBoardComment() {
-      
-    }
-  }
-`
+// export const DELETE_BOARD_COMMENT = gql`
+//   mutation deleteBoardComment() {
+//     deleteBoardComment() {
+
+//     }
+//   }
+// `

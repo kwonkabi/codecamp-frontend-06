@@ -3,6 +3,6 @@ import { MouseEvent } from "react";
 
 export interface IBoardCommentListUIProps {
   data?: Pick<IQuery, "fetchBoardComments">;
-  onMouseDownEdit: (event: MouseEvent<HTMLImageElement>) => void;
-  onMouseDownDelete: (event: MouseEvent<HTMLImageElement>) => void;
+  // onMouseDownEdit: (event: MouseEvent<HTMLImageElement>) => void;
+  // onMouseDownDelete: (event: MouseEvent<HTMLImageElement>) => void;
 }

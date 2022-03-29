@@ -1,7 +1,7 @@
-import * as S from '../write/BoardCommentWrite.styles'
-import { IBoardCommentWriteUIProps } from './BoardCommentWrite.types'
+import * as S from "../write/BoardCommentWrite.styles";
+import { IBoardCommentWriteUIProps } from "./BoardCommentWrite.types";
 
-export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps){
+export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps) {
   return (
     <S.Wrapper>
       <>
@@ -19,6 +19,7 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps){
           placeholder="비밀번호"
           onChange={props.onChangePassword}
         />
+        <S.Star onChange={props.onChangeStar} />
       </S.InputWrapper>
       <S.ContentsWrapper>
         <S.Contents
@@ -33,9 +34,8 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps){
         </S.BottomWrapper>
       </S.ContentsWrapper>
     </S.Wrapper>
-  )
+  );
 }
-
 
 // export default function BoardCommentWriteUI(){
 
