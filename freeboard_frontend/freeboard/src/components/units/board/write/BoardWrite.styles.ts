@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { IBoardWriteUIProps } from "./BoardWrite.types";
 import { ISubmitButtonProps } from "./BoardWrite.types";
 
 export const Wrapper = styled.div`
@@ -63,7 +62,7 @@ export const Subject = styled.input`
   border: 1px solid #bdbdbd;
 `;
 
-export const Contents = styled.input`
+export const Contents = styled.textarea`
   width: 996px;
   height: 480px;
   padding-left: 16px;

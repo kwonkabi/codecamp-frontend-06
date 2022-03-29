@@ -73,7 +73,7 @@ export const Button = styled.button`
   height: 45px;
   background-color: white;
   border: 1px solid gray;
-  margin: 0px 12px;
+  margin: 0px 12px 80px 12px;
   cursor: pointer;
 
   :hover {

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import BoardWriteUI from "./BoardWrite.presenter";
 import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
-import { IBoardWriteProps } from "./BoardWrite.types";
+import { IBoardWriteProps, IUpdateBoardInput } from "./BoardWrite.types";
 
 export default function BoardWrite(props: IBoardWriteProps) {
   const router = useRouter();
@@ -63,7 +63,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   };
 
-  const onChangeContents = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChangeContents = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContents(event.target.value);
     if (event.target.value !== "") {
       setContentsError("");
@@ -112,15 +112,26 @@ export default function BoardWrite(props: IBoardWriteProps) {
   };
 
   const onClickUpdate = async () => {
+    if (!title && !contents) {
+      alert("수정한 내용이 없습니다.")
+      return;
+    }
+
+    if (!password) {
+      alert("비밀번호를 입력해주세요.")
+      return;
+    }
+
+    const updateBoardInput: IUpdateBoardInput = {}
+    if(title) updateBoardInput.title = title
+    if(contents) updateBoardInput.contents = contents
+
     try {
       await updateBoard({
         variables: {
           boardId: router.query.boardId,
-          password: password,
-          updateBoardInput: {
-            title: title,
-            contents: contents
-          },
+          password,
+          updateBoardInput
         },
       });
       alert("게시물 수정에 성공하였습니다!");
@@ -144,6 +155,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       onClickSubmit={onClickSubmit}
       onClickUpdate={onClickUpdate}
       isEdit={props.isEdit}
+      data={props.data}
     />
   );
 }
