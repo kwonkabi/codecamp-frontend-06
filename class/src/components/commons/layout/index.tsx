@@ -11,12 +11,12 @@ const BodyWrapper = styled.div`
 `;
 
 const Body = styled.div`
-  height: 300px;
+  height: 700px;
 `;
 
 const LayoutSidebar = styled.div`
   width: 100px;
-  height: 300px;
+  height: 700px;
   background-color: orange;
 `;
 
