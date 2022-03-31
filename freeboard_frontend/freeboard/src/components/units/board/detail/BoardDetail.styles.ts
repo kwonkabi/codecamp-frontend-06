@@ -54,6 +54,40 @@ export const Body = styled.div`
   min-height: 800px;
 `;
 
+export const Title = styled.h1`
+  padding-top: 80px;
+`;
+
+export const Contents = styled.div`
+  padding-top: 40px;
+  padding-bottom: 120px;
+`;
+
+export const BottomWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 80px;
+`;
+
+export const Button = styled.button`
+  width: 179px;
+  height: 45px;
+  background-color: white;
+  border: 1px solid gray;
+  margin: 0px 12px;
+  cursor: pointer;
+
+  :hover {
+    background-color: gold;
+    border-color: white;
+  }
+`;
+
+export const IconWrapper = styled.div`
+  text-align: center;
+`;
+
 export const Youtube = styled(ReactPlayer)`
   margin: auto;
 `;
@@ -65,9 +99,7 @@ export const LikeWrapper = styled.div`
   justify-content: center;
 `;
 
-export const IconWrapper = styled.div`
-  text-align: center;
-`;
+export const LocationIcon = styled.img``;
 
 export const LikeIcon = styled(LikeOutlined)`
   font-size: 24px;
@@ -91,32 +123,4 @@ export const DislikeCount = styled.div`
   color: #828282;
 `;
 
-export const Title = styled.h1`
-  padding-top: 80px;
-`;
-
-export const Contents = styled.div`
-  padding-top: 40px;
-  padding-bottom: 120px;
-`;
-
-export const BottomWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding-top: 80px;
-`;
-
-export const Button = styled.button`
-  width: 179px;
-  height: 45px;
-  background-color: white;
-  border: 1px solid gray;
-  margin: 0px 12px 80px 12px;
-  cursor: pointer;
-
-  :hover {
-    background-color: gold;
-    border-color: white;
-  }
-`;
+export const LinkIcon = styled.img``;

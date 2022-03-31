@@ -5,8 +5,8 @@ import {
   IMutation,
   IMutationCreateBoardCommentArgs,
 } from "../../../../commons/generated/types";
-import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
 import BoardCommentWriteUI from "./BoardCommentWrite.presenter";
+import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
 import { CREATE_BOARD_COMMENT } from "./BoardCommentWrite.queries";
 
 export default function BoardCommentWrite() {
@@ -14,6 +14,7 @@ export default function BoardCommentWrite() {
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");
   const [contents, setContents] = useState("");
+  const [star, setStar] = useState(0);
 
   const [createBoardComment] = useMutation<
     Pick<IMutation, "createBoardComment">,
@@ -32,6 +33,10 @@ export default function BoardCommentWrite() {
     setContents(event.target.value);
   }
 
+  function onChangeStar(value: number) {
+    setStar(value);
+  }
+
   async function onClickWrite() {
     try {
       await createBoardComment({
@@ -40,7 +45,7 @@ export default function BoardCommentWrite() {
             writer,
             password,
             contents,
-            rating: 3,
+            rating: star,
           },
           boardId: String(router.query.boardId),
         },
@@ -64,9 +69,10 @@ export default function BoardCommentWrite() {
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
       onChangeContents={onChangeContents}
+      onChangeStar={onChangeStar}
       onClickWrite={onClickWrite}
       contents={contents}
-      writer={""} // 이게 왜 필요한지?
+      writer={writer}
     />
   );
 }

@@ -1,8 +1,11 @@
 import { useMutation, useQuery } from "@apollo/client";
+import { Modal } from "antd";
 import { useRouter } from "next/router";
+import { ChangeEvent, MouseEvent, useState } from "react";
 import {
   IMutation,
-  IMutationUpdateBoardCommentArgs,
+  IMutationDeleteBoardCommentArgs,
+  // IMutationUpdateBoardCommentArgs,
   IQuery,
   IQueryFetchBoardCommentsArgs,
 } from "../../../../commons/generated/types";
@@ -10,11 +13,15 @@ import BoardCommentListUI from "./BoardCommentList.presenter";
 import {
   DELETE_BOARD_COMMENT,
   FETCH_BOARD_COMMENTS,
-  UPDATE_BOARD_COMMENT,
+  // UPDATE_BOARD_COMMENT,
 } from "./BoardCommentList.queries";
 
 export default function BoardCommentList() {
   const router = useRouter();
+  const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
+  const [deleteId, setDeleteId] = useState("");
+  const [myPassword, setMyPassword] = useState("");
+
   const { data } = useQuery<
     Pick<IQuery, "fetchBoardComments">,
     IQueryFetchBoardCommentsArgs
@@ -22,47 +29,48 @@ export default function BoardCommentList() {
     variables: { boardId: String(router.query.boardId) },
   });
 
-  // const [updatdBoardComment] = useMutation<Pick<IMutation, "updateBoardComment">, IMutationUpdateBoardCommentArgs>(UPDATE_BOARD_COMMENT);
+  const [deleteBoardComment] = useMutation<
+    Pick<IMutation, "deleteBoardComment">,
+    IMutationDeleteBoardCommentArgs
+  >(DELETE_BOARD_COMMENT);
 
-  // const onMouseDownEdit = async () => {
-  //   try {
-  //     await updateBoardComment({
-  //       variables: {
-  //         updateBoardCommentInput: {
+  async function onClickDelete() {
+    try {
+      await deleteBoardComment({
+        variables: {
+          password: myPassword,
+          boardCommentId: deleteId,
+        },
+        refetchQueries: [
+          {
+            query: FETCH_BOARD_COMMENTS,
+            variables: { boardId: router.query.boardId },
+          },
+        ],
+      });
+      setIsOpenDeleteModal(false);
+      setDeleteId("");
+    } catch (error: any) {
+      Modal.error({ content: error.message });
+    }
+  }
 
-  //         },
-  //         password:
-  //         boardCommentId:
-  //       },
-  //       refetchQueries: [{
-  //         mutation: UPDATE_BOARD_COMMENT,
-  //         variables: {}
-  //       }]
-  //     })
-  //   } catch (error: any) {
-  //     alert(error.message)
-  //   }
-  // }
+  function onClickOpenDeleteModal(event: MouseEvent<HTMLImageElement>) {
+    setIsOpenDeleteModal(true);
+    if (event.target instanceof Element) setDeleteId(event.target.id);
+  }
 
-  // const onMouseDownDelete = async () => {
-  //   try {
-  //     await deleteBoardComment({
-  //       variables: {},
-  //       refetchQueries: [{
-  //         mutation: DELETE_BOARD_COMMENT,
-  //         variables: {}
-  //       }]
-  //     })
-  //   } catch (error: any) {
-  //     alert(error.message)
-  //   }
-  // }
+  function onChangeDeletePassword(event: ChangeEvent<HTMLInputElement>) {
+    setMyPassword(event.target.value);
+  }
 
   return (
     <BoardCommentListUI
       data={data}
-      // onMouseDownEdit={onMouseDownEdit}
-      // onMouseDownDelete={onMouseDownDelete}
+      onClickOpenDeleteModal={onClickOpenDeleteModal}
+      isOpenDeleteModal={isOpenDeleteModal}
+      onClickDelete={onClickDelete}
+      onChangeDeletePassword={onChangeDeletePassword}
     />
   );
 }
