@@ -18,7 +18,7 @@ const settings = {
 const H3 = styled.img`
   width: 100px;
   height: 100px;
-  margin-left: 800px;
+  margin-left: 600px;
 `;
 
 export const Container = styled.div`

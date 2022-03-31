@@ -10,13 +10,13 @@ const BodyWrapper = styled.div`
 `;
 
 const LayoutSidebar = styled.div`
-  300px;
+  600px;
   background-color: skyblue;
 `;
 
 const Body = styled.div`
-  width: 100px;
-  height: 300px;
+  width: 100%;
+  height: 600px;
 `;
 
 interface ILayoutProps {
