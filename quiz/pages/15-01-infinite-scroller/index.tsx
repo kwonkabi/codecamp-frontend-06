@@ -32,7 +32,7 @@ const MapBoardPage = () => {
       variables: { page: Math.ceil(data.fetchBoards.length / 10) + 1 },
       updateQuery: (prev, { fetchMoreResult }) => {
         if (!fetchMoreResult.fetchBoards)
-          return { fetchBoars: [prev.fetchBoards] };
+          return { fetchBoards: [prev.fetchBoards] };
 
         return {
           fetchBoards: [...prev.fetchBoards, ...fetchMoreResult.fetchBoards],
