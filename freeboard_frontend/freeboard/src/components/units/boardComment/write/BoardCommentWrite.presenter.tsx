@@ -5,8 +5,8 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps) {
   return (
     <S.Wrapper>
       <>
-        <S.PencilIcon src="/images/boardComment/write/pencil.png" />
-        <span>댓글</span>
+        <S.PencilIcon />
+        <span> 댓글</span>
       </>
       <S.InputWrapper>
         <S.Input

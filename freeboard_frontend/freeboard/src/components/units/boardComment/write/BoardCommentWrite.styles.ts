@@ -1,12 +1,15 @@
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
 import { Rate } from "antd";
+import { FormOutlined } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
   width: 1200px;
   margin: 0px 100px;
 `;
 
-export const PencilIcon = styled.img`
+export const PencilIcon = styled(FormOutlined)`
+  font-size: 20px;
+  color: blue;
 `;
 
 export const InputWrapper = styled.div`
@@ -61,6 +64,7 @@ export const Button = styled.button`
 `;
 
 export const Star = styled(Rate)`
+  color: #87ceeb;
 `;
 
 // export const CommentWrapper = styled.div`

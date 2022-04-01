@@ -9,7 +9,7 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
       <S.CardWrapper>
         <S.Header>
           <S.AvatarWrapper>
-            <S.Avatar src="/freeboard/public/board/detail/avatar.png" />
+            <S.AvatarIcon />
             <S.Info>
               <S.Writer>{props.data?.fetchBoard?.writer}</S.Writer>
               <S.CreatedAt>
@@ -18,12 +18,12 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
             </S.Info>
           </S.AvatarWrapper>
           <S.IconWrapper>
-            <S.LinkIcon src="/images/board/detail/link.png" />
+            <S.LinkIcon />
             <Tooltip
               placement="topRight"
               title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
             >
-              <S.LocationIcon src="/images/board/detail/location.png" />
+              <S.LocationIcon />
             </Tooltip>
           </S.IconWrapper>
         </S.Header>

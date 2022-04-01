@@ -1,6 +1,12 @@
 import styled from "@emotion/styled";
 import ReactPlayer from "react-player";
-import { LikeOutlined, DislikeOutlined } from "@ant-design/icons";
+import {
+  UserOutlined,
+  LinkOutlined,
+  EnvironmentOutlined,
+  LikeOutlined,
+  DislikeOutlined,
+} from "@ant-design/icons";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -33,9 +39,11 @@ export const Header = styled.div`
 export const AvatarWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;
 
-export const Avatar = styled.img`
+export const AvatarIcon = styled(UserOutlined)`
+  font-size: 35px;
   margin-right: 10px;
 `;
 
@@ -79,7 +87,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   :hover {
-    background-color: gold;
+    background-color: #87ceeb;
     border-color: white;
   }
 `;
@@ -99,11 +107,22 @@ export const LikeWrapper = styled.div`
   justify-content: center;
 `;
 
-export const LocationIcon = styled.img``;
+export const LinkIcon = styled(LinkOutlined)`
+  font-size: 32px;
+  color: #87ceeb;
+  cursor: pointer;
+  margin-right: 20px;
+`;
+
+export const LocationIcon = styled(EnvironmentOutlined)`
+  font-size: 32px;
+  color: #87ceeb;
+  cursor: pointer;
+`;
 
 export const LikeIcon = styled(LikeOutlined)`
   font-size: 24px;
-  color: #ffd600;
+  color: blue;
   margin: 0px 20px;
   cursor: pointer;
 `;
@@ -116,11 +135,9 @@ export const DislikeIcon = styled(DislikeOutlined)`
 `;
 
 export const LikeCount = styled.div`
-  color: #ffd600;
+  color: blue;
 `;
 
 export const DislikeCount = styled.div`
   color: #828282;
 `;
-
-export const LinkIcon = styled.img``;

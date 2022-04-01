@@ -28,7 +28,7 @@ export const DELETE_BOARD = gql`
 
 export const LIKE_BOARD = gql`
   mutation likeBoard($boardId: ID!) {
-    likeboard(boardId: $boardId)
+    likeBoard(boardId: $boardId)
   }
 `;
 
