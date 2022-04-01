@@ -64,6 +64,7 @@ export const Button = styled.button`
   width: 171px;
   height: 52px;
   background-color: white;
+  font-weight: bold;
   border-radius: 15px;
   display: flex;
   flex-direction: row;
@@ -72,6 +73,6 @@ export const Button = styled.button`
   cursor: pointer;
 
   :hover {
-    background-color: #f5f2fc;
+    background-color: #b8f4ff;
   }
 `;
