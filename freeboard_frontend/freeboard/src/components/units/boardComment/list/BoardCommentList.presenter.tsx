@@ -2,10 +2,10 @@ import { Modal } from "antd";
 import { getDate } from "../../../../commons/libraries/utils";
 import * as S from "../list/BoardCommentList.styles";
 import { IBoardCommentListUIProps } from "./BoardCommentList.types";
-
+import InfiniteScroll from "react-infinite-scroller";
 export default function BoardCommentListUI(props: IBoardCommentListUIProps) {
   return (
-    <div>
+    <InfiniteScroll pageStart={0} loadMore={props.onLoadMore} hasMore={true}>
       {props.isOpenDeleteModal && (
         <Modal visible={true} onOk={props.onClickDelete}>
           <div>비밀번호 입력: </div>
@@ -38,6 +38,6 @@ export default function BoardCommentListUI(props: IBoardCommentListUIProps) {
           <S.DateString>{getDate(el.createdAt)}</S.DateString>
         </S.ItemWrapper>
       ))}
-    </div>
+    </InfiniteScroll>
   );
 }

@@ -22,7 +22,7 @@ export default function BoardCommentList() {
   const [deleteId, setDeleteId] = useState("");
   const [myPassword, setMyPassword] = useState("");
 
-  const { data } = useQuery<
+  const { data, fetchMore } = useQuery<
     Pick<IQuery, "fetchBoardComments">,
     IQueryFetchBoardCommentsArgs
   >(FETCH_BOARD_COMMENTS, {
@@ -64,6 +64,25 @@ export default function BoardCommentList() {
     setMyPassword(event.target.value);
   }
 
+  const onLoadMore = () => {
+    if (!data) return;
+
+    fetchMore({
+      variables: { page: Math.ceil(data.fetchBoardComments.length / 10) + 1 },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult?.fetchBoardComments)
+          return { fetchBoardComments: [...prev.fetchBoardComments] };
+
+        return {
+          fetchBoardComments: [
+            ...prev.fetchBoardComments,
+            ...fetchMoreResult.fetchBoardComments,
+          ],
+        };
+      },
+    });
+  };
+
   return (
     <BoardCommentListUI
       data={data}
@@ -71,6 +90,7 @@ export default function BoardCommentList() {
       isOpenDeleteModal={isOpenDeleteModal}
       onClickDelete={onClickDelete}
       onChangeDeletePassword={onChangeDeletePassword}
+      onLoadMore={onLoadMore}
     />
   );
 }
