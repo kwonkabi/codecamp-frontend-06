@@ -5,7 +5,6 @@ import { ChangeEvent, MouseEvent, useState } from "react";
 import {
   IMutation,
   IMutationDeleteBoardCommentArgs,
-  // IMutationUpdateBoardCommentArgs,
   IQuery,
   IQueryFetchBoardCommentsArgs,
 } from "../../../../commons/generated/types";
@@ -13,7 +12,6 @@ import BoardCommentListUI from "./BoardCommentList.presenter";
 import {
   DELETE_BOARD_COMMENT,
   FETCH_BOARD_COMMENTS,
-  // UPDATE_BOARD_COMMENT,
 } from "./BoardCommentList.queries";
 
 export default function BoardCommentList() {
@@ -21,6 +19,8 @@ export default function BoardCommentList() {
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
   const [deleteId, setDeleteId] = useState("");
   const [myPassword, setMyPassword] = useState("");
+  const [myIndex, setMyIndex] = useState(-1);
+  const [isEdit, setIsEdit] = useState(false);
 
   const { data, fetchMore } = useQuery<
     Pick<IQuery, "fetchBoardComments">,
@@ -83,6 +83,11 @@ export default function BoardCommentList() {
     });
   };
 
+  const onClickEdit = (event) => {
+    setMyIndex(Number(event.target.id));
+    setIsEdit(true);
+  };
+
   return (
     <BoardCommentListUI
       data={data}
@@ -91,6 +96,9 @@ export default function BoardCommentList() {
       onClickDelete={onClickDelete}
       onChangeDeletePassword={onChangeDeletePassword}
       onLoadMore={onLoadMore}
+      onClickEdit={onClickEdit}
+      isEdit={isEdit}
+      myIndex={myIndex}
     />
   );
 }

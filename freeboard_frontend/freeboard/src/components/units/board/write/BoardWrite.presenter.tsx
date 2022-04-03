@@ -57,7 +57,15 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
         <S.InputWrapper>
           <S.Label>주소</S.Label>
           <S.ZipcodeWrapper>
-            <S.Zipcode placeholder="07250" />
+            <S.Zipcode
+              placeholder="07250"
+              readOnly
+              value={
+                props.zipcode ||
+                props.data?.fetchBoard.boardAddress?.zipcode ||
+                ""
+              }
+            />
             <S.SearchButton onClick={props.onClickAddressSearch}>
               우편번호 검색
             </S.SearchButton>

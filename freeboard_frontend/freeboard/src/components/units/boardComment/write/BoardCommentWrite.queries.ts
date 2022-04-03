@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client"
+import { gql } from "@apollo/client";
 
 export const CREATE_BOARD_COMMENT = gql`
   mutation createBoardComment(
@@ -12,4 +12,22 @@ export const CREATE_BOARD_COMMENT = gql`
       _id
     }
   }
-`
+`;
+
+export const UPDATE_BOARD_COMMENT = gql`
+  mutation updateBoardComment(
+    $updateBoardCommentInput: UpdateBoardCommentInput!
+    $password: String
+    $boardCommentId: ID!
+  ) {
+    updateBoardComment(
+      updateBoardCommentInput: $updateBoardCommentInput
+      password: $password
+      boardCommentId: $boardCommentId
+    ) {
+      _id
+      writer
+      contents
+    }
+  }
+`;

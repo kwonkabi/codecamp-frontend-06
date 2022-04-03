@@ -48,6 +48,8 @@ export const ColumnTitle = styled.div`
   :hover {
     color: blue;
   }
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const Footer = styled.div`

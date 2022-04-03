@@ -17,11 +17,3 @@ export const DELETE_BOARD_COMMENT = gql`
     deleteBoardComment(password: $password, boardCommentId: $boardCommentId)
   }
 `;
-
-// export const UPDATE_BOARD_COMMENT = gql`
-//   mutation updateBoardComment() {
-//     updatdBoardComment() {
-
-//     }
-//   }
-// `

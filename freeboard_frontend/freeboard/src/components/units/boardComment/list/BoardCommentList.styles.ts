@@ -35,8 +35,7 @@ export const Writer = styled.div`
   font-weight: bold;
 `;
 
-export const Contents = styled.div`
-`;
+export const Contents = styled.div``;
 
 export const OptionWrapper = styled.div`
   display: flex;
@@ -63,6 +62,7 @@ export const DateString = styled.div`
 
 export const Star = styled(Rate)`
   padding-left: 20px;
+  color: #87ceeb;
 `;
 
 export const PasswordInput = styled.input`

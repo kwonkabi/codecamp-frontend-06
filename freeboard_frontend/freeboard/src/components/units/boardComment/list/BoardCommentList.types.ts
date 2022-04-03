@@ -8,4 +8,7 @@ export interface IBoardCommentListUIProps {
   onClickDelete: () => void;
   onChangeDeletePassword: (event: ChangeEvent<HTMLInputElement>) => void;
   onLoadMore: () => void;
+  onClickEdit: () => void;
+  myIndex: number;
+  isEdit: boolean;
 }
