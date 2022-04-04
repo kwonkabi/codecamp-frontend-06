@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Rate } from "antd";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
 export const ItemWrapper = styled.div`
   width: 1200px;
@@ -42,13 +43,13 @@ export const OptionWrapper = styled.div`
   flex-direction: row;
 `;
 
-export const UpdateIcon = styled.img`
+export const UpdateIcon = styled(EditOutlined)`
   width: 24px;
   height: 24px;
   cursor: pointer;
 `;
 
-export const DeleteIcon = styled.img`
+export const DeleteIcon = styled(DeleteOutlined)`
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -62,7 +63,7 @@ export const DateString = styled.div`
 
 export const Star = styled(Rate)`
   padding-left: 20px;
-  color: #87ceeb;
+  color: ;
 `;
 
 export const PasswordInput = styled.input`
