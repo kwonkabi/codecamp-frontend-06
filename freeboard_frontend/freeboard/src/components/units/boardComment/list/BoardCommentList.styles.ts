@@ -63,7 +63,7 @@ export const DateString = styled.div`
 
 export const Star = styled(Rate)`
   padding-left: 20px;
-  color: ;
+  color: #f5818e;
 `;
 
 export const PasswordInput = styled.input`

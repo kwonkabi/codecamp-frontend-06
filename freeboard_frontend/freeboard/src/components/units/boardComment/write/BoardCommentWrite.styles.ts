@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
 export const PencilIcon = styled(FormOutlined)`
   font-size: 20px;
-  color: blue;
+  color: #f5818e;
 `;
 
 export const InputWrapper = styled.div`
@@ -64,5 +64,5 @@ export const Button = styled.button`
 `;
 
 export const Star = styled(Rate)`
-  color: #87ceeb;
+  color: #f5818e;
 `;

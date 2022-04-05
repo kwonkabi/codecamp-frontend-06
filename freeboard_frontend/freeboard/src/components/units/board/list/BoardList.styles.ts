@@ -22,7 +22,7 @@ export const Row = styled.div`
   line-height: 52px;
   border-bottom: 1px solid gray;
   :hover {
-    color: blue;
+    color: #f5818e;
   }
 `;
 
@@ -46,7 +46,7 @@ export const ColumnTitle = styled.div`
   text-align: center;
   cursor: pointer;
   :hover {
-    color: blue;
+    color: #f5818e;
   }
   overflow: hidden;
   text-overflow: ellipsis;
@@ -74,6 +74,6 @@ export const Button = styled.button`
   align-items: center;
   cursor: pointer;
   :hover {
-    background-color: #f5f2fc;
+    background-color: #f2b8c1;
   }
 `;

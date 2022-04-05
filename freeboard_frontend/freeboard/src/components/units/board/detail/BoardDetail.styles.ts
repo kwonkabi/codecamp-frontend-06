@@ -87,7 +87,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   :hover {
-    background-color: #87ceeb;
+    background-color: #f5818e;
     border-color: white;
   }
 `;
@@ -109,20 +109,20 @@ export const LikeWrapper = styled.div`
 
 export const LinkIcon = styled(LinkOutlined)`
   font-size: 32px;
-  color: #87ceeb;
+  color: #f5818e;
   cursor: pointer;
   margin-right: 20px;
 `;
 
 export const LocationIcon = styled(EnvironmentOutlined)`
   font-size: 32px;
-  color: #87ceeb;
+  color: #f5818e;
   cursor: pointer;
 `;
 
 export const LikeIcon = styled(LikeOutlined)`
   font-size: 24px;
-  color: blue;
+  color: #f5818e;
   margin: 0px 20px;
   cursor: pointer;
 `;
@@ -135,7 +135,7 @@ export const DislikeIcon = styled(DislikeOutlined)`
 `;
 
 export const LikeCount = styled.div`
-  color: blue;
+  color: #f5818e;
 `;
 
 export const DislikeCount = styled.div`

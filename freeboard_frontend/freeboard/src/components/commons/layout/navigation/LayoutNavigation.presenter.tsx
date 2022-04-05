@@ -4,7 +4,7 @@ import { ILayoutNavigationUIProps } from "./LayoutNavigation.types";
 
 const NAVIGATION_MENUS = [
   { name: "BOARD", page: "/boards" },
-  { name: "PRODUCT", page: "/markets" },
+  { name: "RANDOM DOGGIE", page: "/randomdoggie" },
   { name: "MYPAGE", page: "/mypages" },
 ];
 

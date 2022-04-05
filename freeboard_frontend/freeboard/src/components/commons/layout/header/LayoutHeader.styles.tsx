@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   height: 152px;
-  background-color: skyblue;
+  background-color: none;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -23,13 +23,13 @@ export const InnerLogo = styled.div`
   font-weight: bold;
   font-family: "live";
   font-style: bold;
-  color: white;
+  color: black;
   cursor: pointer;
 `;
 
 export const InnerButton = styled.span`
   margin: 10px;
-  color: white;
+  color: black;
   font-style: italic;
   cursor: pointer;
 `;
