@@ -1,7 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class FetchProducts {
+export class createProduct extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   _id!: string;
 
@@ -13,10 +13,4 @@ export class FetchProducts {
 
   @Column({ type: "text" })
   detail!: string;
-
-  @Column({ type: "text" })
-  price!: number;
-
-  @Column({ type: "text" })
-  createdAt!: Date;
 }

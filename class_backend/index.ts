@@ -29,7 +29,7 @@ const typeDefs = gql`
   type Mutation {
     # createBoard(writer: String, title: String, contents: String): String 연습용(example)
 
-    createBoard(createBoardInput: CreateBoardInput!): String # 실제사용(backend06
+    createBoard(createBoardInput: CreateBoardInput!): String # 실제사용(backend06)
   }
 `;
 
