@@ -1,7 +1,13 @@
+// import RandomDoggies from "../../src/components/units/randomDoggies/RandomDoggies.container";
+
+// export default function RandomDoggiesPage() {
+//   return <RandomDoggies />;
+// }
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function OpenApiWithUseEffectPage() {
+export default function RandomDoggiePage() {
   const [dogUrl, setDogUrl] = useState("");
 
   useEffect(() => {
