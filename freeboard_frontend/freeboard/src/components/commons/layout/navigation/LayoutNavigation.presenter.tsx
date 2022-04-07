@@ -4,6 +4,7 @@ import { ILayoutNavigationUIProps } from "./LayoutNavigation.types";
 
 const NAVIGATION_MENUS = [
   { name: "BOARD", page: "/boards" },
+  { name: "FIREBASE_BOARD", page: "/myfirebase" },
   { name: "RANDOM DOGGIE", page: "/randomdoggie" },
   { name: "MYPAGE", page: "/mypages" },
 ];
