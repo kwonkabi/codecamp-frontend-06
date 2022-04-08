@@ -17,7 +17,7 @@ const UPLOAD_FILE = gql`
   }
 `;
 
-export default function ImgageUploadPage() {
+export default function ImageUploadPage() {
   const [imageUrl, setImageUrl] = useState<string | undefined>(""); // 없을 수도 있다는 에러 뜨기 때문에 알려주기. 만약 쓰지 않으면 문자열로 간주.
   const [uploadFile] = useMutation<
     Pick<IMutation, "uploadFile">,
