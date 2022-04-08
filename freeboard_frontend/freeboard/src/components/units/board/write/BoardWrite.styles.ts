@@ -167,7 +167,7 @@ export const SubmitButton = styled.button`
   cursor: pointer;
 
   background-color: ${(props: ISubmitButtonProps) =>
-    props.isActive ? "#f5818e" : "none"};
+    props.isActive ? "yellow" : "none"};
 `;
 
 export const Error = styled.div`

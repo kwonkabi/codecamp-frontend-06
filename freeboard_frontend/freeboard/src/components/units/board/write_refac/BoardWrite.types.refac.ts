@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import { IQuery } from "../../../../commons/generated/types";
+import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface IBoardWriteProps {
   isEdit: boolean;
@@ -23,18 +23,19 @@ export interface ISubmitButtonProps {
 
 export interface IBoardWriteUIProps {
   isActive: boolean;
-  writerError: string;
-  passwordError: string;
-  titleError: string;
-  contentsError: string;
-  onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
-  onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
-  onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
-  onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  inputErrors: {
+    writer: string;
+    password: string;
+    title: string;
+    contents: string;
+  };
+  onChangeInput: (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  onChangeYoutubeUrl: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
   onClickAddressSearch: () => void;
   onCompleteAddressSearch: (data: any) => void;
-  onChangeYoutubeUrl: (event: ChangeEvent<HTMLInputElement>) => void;
   onClickSubmit: () => void;
   onClickUpdate: () => void;
   isEdit: boolean;
