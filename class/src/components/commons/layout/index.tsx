@@ -43,7 +43,7 @@ export default function Layout(props: ILayoutProps) {
       <LayoutBanner />
       <LayoutNavigation />
       <BodyWrapper>
-        <LayoutSidebar>여기는 사이드바입니다!! SIDEBAR</LayoutSidebar>
+        <LayoutSidebar>여기는 사이드바입니다!</LayoutSidebar>
         <Body>{props.children}</Body>
       </BodyWrapper>
       <LayoutFooter />
