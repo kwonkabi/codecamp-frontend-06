@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import { IQuery } from "../../../../commons/generated/types";
+import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface IBoardWriteProps {
   isEdit: boolean;
@@ -15,6 +15,7 @@ export interface IUpdateBoardInput {
     address?: string;
     addressDetail?: string;
   };
+  images?: string[];
 }
 
 export interface ISubmitButtonProps {
@@ -31,10 +32,11 @@ export interface IBoardWriteUIProps {
   onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onChangeYoutubeUrl: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
   onClickAddressSearch: () => void;
   onCompleteAddressSearch: (data: any) => void;
-  onChangeYoutubeUrl: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeFileUrls: (fileUrls: string, index: number) => void;
   onClickSubmit: () => void;
   onClickUpdate: () => void;
   isEdit: boolean;
@@ -43,4 +45,5 @@ export interface IBoardWriteUIProps {
   zipcode: string;
   address: string;
   addressDetail: string;
+  fileUrls: string[];
 }

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { EditOutlined } from "@ant-design/icons";
+import { ITextTokenProps } from "./BoardList.types";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -22,7 +22,7 @@ export const Row = styled.div`
   line-height: 52px;
   border-bottom: 1px solid gray;
   :hover {
-    color: #f5818e;
+    color: blue;
   }
 `;
 
@@ -46,22 +46,18 @@ export const ColumnTitle = styled.div`
   text-align: center;
   cursor: pointer;
   :hover {
-    color: #f5818e;
+    color: blue;
   }
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;
 
 export const Footer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   padding-top: 50px;
-  padding-left: 370px;
 `;
 
-export const PencilIcon = styled(EditOutlined)``;
+export const PencilIcon = styled.img``;
 
 export const Button = styled.button`
   width: 171px;
@@ -74,6 +70,10 @@ export const Button = styled.button`
   align-items: center;
   cursor: pointer;
   :hover {
-    background-color: #f2b8c1;
+    background-color: #f5f2fc;
   }
+`;
+
+export const TextToken = styled.span`
+  color: ${(props: ITextTokenProps) => (props.isMatched ? "red" : "black")};
 `;

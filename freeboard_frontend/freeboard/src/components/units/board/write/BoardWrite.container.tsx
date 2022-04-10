@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import BoardWriteUI from "./BoardWrite.presenter";
@@ -22,6 +22,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [zipcode, setZipcode] = useState("");
   const [address, setAddress] = useState("");
   const [addressDetail, setAddressDetail] = useState("");
+  const [fileUrls, setFileUrls] = useState(["", "", ""]);
 
   const [writerError, setWriterError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -84,6 +85,14 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   };
 
+  const onChangeYoutubeUrl = (event: ChangeEvent<HTMLInputElement>) => {
+    setYoutubeUrl(event.target.value);
+  };
+
+  const onChangeAddressDetail = (event: ChangeEvent<HTMLInputElement>) => {
+    setAddressDetail(event.target.value);
+  };
+
   const onClickAddressSearch = () => {
     setIsOpen(true);
   };
@@ -94,12 +103,10 @@ export default function BoardWrite(props: IBoardWriteProps) {
     setIsOpen(false);
   };
 
-  const onChangeAddressDetail = (event: ChangeEvent<HTMLInputElement>) => {
-    setAddressDetail(event.target.value);
-  };
-
-  const onChangeYoutubeUrl = (event: ChangeEvent<HTMLInputElement>) => {
-    setYoutubeUrl(event.target.value);
+  const onChangeFileUrls = (fileUrl: string, index: number) => {
+    const newFileUrls = [...fileUrls];
+    newFileUrls[index] = fileUrl;
+    setFileUrls(newFileUrls);
   };
 
   const onClickSubmit = async () => {
@@ -130,33 +137,39 @@ export default function BoardWrite(props: IBoardWriteProps) {
                 address,
                 addressDetail,
               },
+              images: fileUrls,
             },
           },
         });
         console.log(result);
         Modal.success({ content: "게시물 등록에 성공하였습니다!" });
         router.push(`/boards/${result.data.createBoard._id}`);
-      } catch (error: any) {
+      } catch (error) {
         Modal.error({ content: error.message });
       }
     }
   };
 
   const onClickUpdate = async () => {
+    const currentFiles = JSON.stringify(fileUrls);
+    const defaultFiles = JSON.stringify(props.data.fetchBoard.images);
+    const isChangedFiles = currentFiles !== defaultFiles;
+
     if (
       !title &&
       !contents &&
       !youtubeUrl &&
       !address &&
       !addressDetail &&
-      !zipcode
+      !zipcode &&
+      !isChangedFiles
     ) {
-      Modal.error({ content: "수정한 내용이 없습니다." });
+      alert("수정한 내용이 없습니다.");
       return;
     }
 
     if (!password) {
-      Modal.error({ content: "비밀번호를 입력해주세요." });
+      alert("비밀번호를 입력해주세요.");
       return;
     }
 
@@ -171,6 +184,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       if (addressDetail)
         updateBoardInput.boardAddress.addressDetail = addressDetail;
     }
+    if (isChangedFiles) updateBoardInput.images = fileUrls;
 
     try {
       await updateBoard({
@@ -182,10 +196,16 @@ export default function BoardWrite(props: IBoardWriteProps) {
       });
       Modal.success({ content: "게시물 수정에 성공하였습니다!" });
       router.push(`/boards/${router.query.boardId}`);
-    } catch (error: any) {
+    } catch (error) {
       Modal.error({ content: error.message });
     }
   };
+
+  useEffect(() => {
+    if (props.data?.fetchBoard.images?.length) {
+      setFileUrls([...props.data?.fetchBoard.images]);
+    }
+  }, [props.data]);
 
   return (
     <BoardWriteUI
@@ -198,10 +218,11 @@ export default function BoardWrite(props: IBoardWriteProps) {
       onChangePassword={onChangePassword}
       onChangeTitle={onChangeTitle}
       onChangeContents={onChangeContents}
+      onChangeYoutubeUrl={onChangeYoutubeUrl}
       onChangeAddressDetail={onChangeAddressDetail}
       onClickAddressSearch={onClickAddressSearch}
       onCompleteAddressSearch={onCompleteAddressSearch}
-      onChangeYoutubeUrl={onChangeYoutubeUrl}
+      onChangeFileUrls={onChangeFileUrls}
       onClickSubmit={onClickSubmit}
       onClickUpdate={onClickUpdate}
       isEdit={props.isEdit}
@@ -210,6 +231,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       zipcode={zipcode}
       address={address}
       addressDetail={addressDetail}
+      fileUrls={fileUrls}
     />
   );
 }
