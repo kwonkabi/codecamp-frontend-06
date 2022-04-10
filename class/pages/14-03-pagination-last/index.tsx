@@ -1,5 +1,3 @@
-// 05-04에서 복붙
-
 import { useQuery, gql } from "@apollo/client";
 import styled from "@emotion/styled";
 import { useState } from "react";
@@ -34,16 +32,16 @@ export default function MapBoardPage() {
   const [startPage, setStartPage] = useState(1);
   const { data, refetch } = useQuery(FETCH_BOARDS);
   const { data: dataBoardsCount } = useQuery(FETCH_BOARDS_COUNT); // 위의 data와 이름이 같아서 바꿔준 거시다
-  const lastPage = Math.ceil(dataBoardsCount?.fetchBoardsCount / 10); // 백엔드에서 받아오기 전까지 undefined이기 때문에 ?달아주기
+  const lastPage = Math.ceil(dataBoardsCount?.fetchBoardsCount / 10); // fetchBoardsCount를 통해 알아낸 글의 총 개수를 10으로 나눠서 소숫점 첫째 자리를 올림한 것!! (백엔드에서 받아오기 전까지 undefined이기 때문에 ?달아주기)
 
   const onClickPage = (event) => {
     refetch({ page: Number(event.target.id) });
   };
 
   const onClickPrevPage = () => {
-    if (startPage === 1) return;
-    setStartPage((prev) => prev - 10);
-    refetch({ page: startPage - 10 });
+    if (startPage === 1) return; // 현재 페이지 아니고 스타트 페이지인 것 주의!!
+    setStartPage((prev) => prev - 10); // 페이지 숫자 바꾸기
+    refetch({ page: startPage - 10 }); // 실제로 해당하는 페이지로 바꿔주기
   };
 
   const onClickNextPage = () => {
@@ -57,7 +55,6 @@ export default function MapBoardPage() {
     <>
       {data?.fetchBoards.map((el) => (
         <Row key={el._id}>
-          {/* <Column>{el._id}</Column> */}
           <Column>{el.title}</Column>
           <Column>{el.writer}</Column>
         </Row>
@@ -65,7 +62,7 @@ export default function MapBoardPage() {
       <span onClick={onClickPrevPage}>이전페이지</span>
       {new Array(10).fill(1).map(
         (_, index) =>
-          index + startPage <= lastPage && (
+          index + startPage <= lastPage && ( // 이때만 뒤에 거 보여줘라 (함수는 10번 실행됨. 조건이 충족되지 않으면 undefined가 보여지는 것뿐.)
             <span
               key={index + startPage}
               onClick={onClickPage}
@@ -76,11 +73,6 @@ export default function MapBoardPage() {
           )
       )}
       <span onClick={onClickNextPage}>다음페이지</span>
-      {/* {[1, 2, 3].map((el) => (
-        <span key={el} onClick={onClickPage} id={String(el)}>
-          {el}
-        </span>
-      ))} */}
     </>
   );
 }

@@ -34,6 +34,7 @@ export const firebaseApp = initializeApp(firebaseConfig);
 function MyApp({ Component, pageProps }: AppProps) {
   const uploadLink = createUploadLink({
     uri: "http://backend06.codebootcamp.co.kr/graphql",
+    // uri: "http://example.codebootcamp.co.kr/graphql",
   });
 
   const client = new ApolloClient({

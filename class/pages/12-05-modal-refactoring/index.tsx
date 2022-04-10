@@ -1,13 +1,15 @@
-import { useState } from 'react';
-import { Modal, Button } from 'antd';
-import DaumPostcode from 'react-daum-postcode';
+// 12-03-modal-address REFACTORING
 
-export default function ModalAddressPage(){
+import { useState } from "react";
+import { Modal, Button } from "antd";
+import DaumPostcode from "react-daum-postcode";
+
+export default function ModalAddressPage() {
   const [isOpen, setIsOpen] = useState(false);
 
   const onToggleModal = () => {
     setIsOpen((prev) => !prev);
-  }
+  };
 
   const handleComplete = (data: any) => {
     console.log(data);
@@ -17,20 +19,12 @@ export default function ModalAddressPage(){
 
   return (
     <>
-      <Button onClick={onToggleModal}>
-        Open Modal
-      </Button>
+      <Button onClick={onToggleModal}>Open Modal</Button>
       {isOpen && (
-        <Modal
-          visible={true}
-          onOk={onToggleModal}
-          onCancel={onToggleModal}
-        >
-        <DaumPostcode
-          onComplete={handleComplete}
-        />
+        <Modal visible={true} onOk={onToggleModal} onCancel={onToggleModal}>
+          <DaumPostcode onComplete={handleComplete} />
         </Modal>
       )}
     </>
   );
-};
+}

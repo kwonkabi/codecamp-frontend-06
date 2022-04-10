@@ -1,5 +1,3 @@
-// 05-04에서 복붙
-
 import { useQuery, gql } from "@apollo/client";
 import styled from "@emotion/styled";
 import { useState } from "react";
@@ -60,11 +58,6 @@ export default function MapBoardPage() {
         </span>
       ))}
       <span onClick={onClickNextPage}>다음페이지</span>
-      {/* {[1, 2, 3].map((el) => (
-        <span key={el} onClick={onClickPage} id={String(el)}>
-          {el}
-        </span>
-      ))} */}
     </>
   );
 }

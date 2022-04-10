@@ -1,10 +1,8 @@
-// import axios from 'axios'
 import { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 
 const CREATE_BOARD = gql`
   mutation createBoard($writer: String, $title: String, $contents: String) {
-    # 묶음배송 할 때는 mutation 이름 지어줘야 하기 때문에 위아래 두번 쓰는 것
     createBoard(writer: $writer, title: $title, contents: $contents) {
       _id
       number
@@ -18,20 +16,18 @@ export default function GraphqlMutationPage() {
   const [myTitle, setMyTitle] = useState("");
   const [myContents, setMyContents] = useState("");
 
-  // const [data, setData] = useState("")
   const [callApi] = useMutation(CREATE_BOARD);
 
   const callGraphqlApi = async () => {
-    // const result = await axios.get("https://koreanjson.com/posts/1") // rest-api 방식
     const result = await callApi({
       variables: { writer: myWriter, title: myTitle, contents: myContents },
-    }); // graphql-api방식
+    });
     console.log(result);
     console.log(result.data.createBoard.message);
-    // setData(result.data.createBoard.message)
   };
 
   const onChangeWriter = (event) => {
+    // 이벤트 핸들러 함수
     setMyWriter(event.target.value);
   };
 
@@ -45,7 +41,6 @@ export default function GraphqlMutationPage() {
 
   return (
     <div>
-      {/* <div>{data}</div> */}
       작성자: <input type="text" onChange={onChangeWriter}></input>
       <br />
       제목: <input type="text" onChange={onChangeTitle}></input>

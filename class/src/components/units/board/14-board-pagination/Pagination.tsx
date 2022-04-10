@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Pagination(props: any) {
+export default function Pagination(props) {
   const [startPage, setStartPage] = useState(1);
 
   const onClickPage = (event) => {
@@ -36,11 +36,6 @@ export default function Pagination(props: any) {
           )
       )}
       <span onClick={onClickNextPage}>다음페이지</span>
-      {/* {[1, 2, 3].map((el) => (
-      <span key={el} onClick={onClickPage} id={String(el)}>
-        {el}
-      </span>
-    ))} */}
     </>
   );
 }

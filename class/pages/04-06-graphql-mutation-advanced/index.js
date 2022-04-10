@@ -1,5 +1,3 @@
-// import axios from 'axios'
-// import {useState} from 'react'
 import { useMutation, gql } from "@apollo/client";
 
 const CREATE_PRODUCT = gql`

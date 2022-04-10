@@ -1,34 +1,28 @@
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 const StaticRoutingPage = () => {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const onClickMove1 = () => {
-    router.push("/05-04-static-routed-board/83011")
-  }
+    router.push("/05-04-static-routed-board/83011");
+  };
   const onClickMove2 = () => {
-    router.push("/05-04-static-routed-board/83012")
-  }
+    router.push("/05-04-static-routed-board/83012");
+  };
   const onClickMove3 = () => {
-    router.push("/05-04-static-routed-board/83013")
-  }
-
-
-
+    router.push("/05-04-static-routed-board/83013");
+  };
 
   return (
-
     <>
-      <button onClick={onClickMove1}>83011번 게시글로 이동하기</button><br/>
-      <button onClick={onClickMove2}>83012번 게시글로 이동하기</button><br/>
-      <button onClick={onClickMove3}>83013번 게시글로 이동하기</button><br/>
+      <button onClick={onClickMove1}>83011번 게시글로 이동하기</button>
+      <br />
+      <button onClick={onClickMove2}>83012번 게시글로 이동하기</button>
+      <br />
+      <button onClick={onClickMove3}>83013번 게시글로 이동하기</button>
+      <br />
     </>
+  );
+};
 
-
-  )
-
-
-}
-
-export default StaticRoutingPage
+export default StaticRoutingPage;

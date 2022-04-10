@@ -9,7 +9,7 @@ const Column = styled.div`
   width: 25%;
 `;
 
-export default function Board(props: any) {
+export default function Board(props) {
   return (
     <div>
       {props.data?.fetchBoards.map((el) => (

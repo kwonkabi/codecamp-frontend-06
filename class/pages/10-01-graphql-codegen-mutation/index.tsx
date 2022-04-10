@@ -22,10 +22,9 @@ export default function GraphqlMutationPage() {
   const [myTitle, setMyTitle] = useState("");
   const [myContents, setMyContents] = useState("");
 
-  // const [data, setData] = useState("")
   const [callApi] = useMutation<
-    Pick<IMutation, "createBoard">,
-    IMutationCreateBoardArgs
+    Pick<IMutation, "createBoard">, // 받아오는 데이터 result의 타입
+    IMutationCreateBoardArgs // variables의 타입 = 'createBoard에 사용되는 인자들'
   >(CREATE_BOARD);
 
   const callGraphqlApi = async () => {
@@ -52,7 +51,6 @@ export default function GraphqlMutationPage() {
 
   return (
     <div>
-      {/* <div>{data}</div> */}
       작성자: <input type="text" onChange={onChangeWriter}></input>
       <br />
       제목: <input type="text" onChange={onChangeTitle}></input>

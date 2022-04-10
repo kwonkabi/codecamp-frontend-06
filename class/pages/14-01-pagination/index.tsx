@@ -18,7 +18,7 @@ const MyColumn = styled.div`
   /* width: 25%; */
 `;
 export default function MapBoardPage() {
-  const { data, refetch } = useQuery(FETCH_BOARDS);
+  const { data, refetch } = useQuery(FETCH_BOARDS); // data도 state랑 동일한 역할, 바뀌면 리페치, 리렌더 됨
 
   const onClickPage = (event) => {
     refetch({ page: Number(event.target.id) }); // variables 객체 , page는 숫자이므로 Number로 감싸줌
@@ -38,13 +38,13 @@ export default function MapBoardPage() {
         </span>
       ))}
 
-      {/* {[1, 2, 3].map((el) => (
+      {/* {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((el) => (
         <span key={el} onClick={onClickPage} id={String(el)}>
           {el}
         </span>
-      ))} /}
+      ))} /} */}
 
-      {/ <span onClick={onClickPage} id="1">
+      {/* {/ <span onClick={onClickPage} id="1">
         1
       </span>
       <span onClick={onClickPage} id="2">
