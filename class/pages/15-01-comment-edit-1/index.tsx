@@ -22,7 +22,7 @@ const MyColumn = styled.div`
 `;
 
 export default function MapBoardPage() {
-  const [myIndex, setMyIndex] = useState(-1);
+  const [myIndex, setMyIndex] = useState(-1); // 처음에 수정하기 화면 나오지 않게 -1로 설정한 것
   const { data } = useQuery(FETCH_BOARDS);
 
   const onClickEdit = (event) => {
