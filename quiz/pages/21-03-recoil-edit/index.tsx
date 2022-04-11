@@ -1,4 +1,4 @@
-import EditPage from "../board/example/recoil/edit";
+import EditPage from "../example/recoil/edit";
 
 export default function RecoilPage() {
   return <EditPage />;
