@@ -37,10 +37,11 @@ export default function MapBoardPage() {
   const { data } = useQuery(FETCH_BOARDS);
 
   const onClickEdit = (event) => {
+    // const aaa = [...myIndex]; // 여기에 얕은복사 하면 aaa에는 해줄 필요 없음
     const aaa = myIndex;
     aaa[event.target.id] = true;
     console.log(aaa);
-    setMyIndex([...aaa]);
+    setMyIndex([...aaa]); // 얕은복사 필요한 이유 : 기존값이 true로 바뀌어버리면 같아지니까 리렌더 하지 않음 (바뀐 게 없으면 리렌더하지 않는 스테이트 작동 원리)
   };
 
   return (
