@@ -23,7 +23,7 @@ export default function LoginSuccessPage() {
       alert("로그인을 먼저 해주세요.");
       router.push("/22-01-login");
     }
-  }, []);
+  }, [accessToken]);
 
   return <div>{data?.fetchUserLoggedIn.name}님 환영합니다~!</div>;
 }
