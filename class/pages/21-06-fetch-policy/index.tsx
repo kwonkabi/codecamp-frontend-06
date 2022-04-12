@@ -8,12 +8,15 @@ const FETCH_BOARDS = gql`
       _id
       writer
       title
+      contents
     }
   }
 `;
 
 export default function GlobalStatePage() {
-  const { data } = useQuery(FETCH_BOARDS);
+  const { data } = useQuery(FETCH_BOARDS, {
+    fetchPolicy: "cache-first", // 디폴트
+  });
   const [aaa, setAaa] = useState(false);
 
   const onClickAaa = () => {
