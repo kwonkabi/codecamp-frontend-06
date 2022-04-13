@@ -5,7 +5,7 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/store";
 
@@ -14,8 +14,33 @@ interface IApolloSettingProps {
 }
 
 export default function ApolloSetting(props: IApolloSettingProps) {
-  const [accessToken] = useRecoilState(accessTokenState);
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   // setAccessToken은 안 쓰면 지워도 됨, 콤마는 두시오 (구조분해할당)
+
+  // 1. DEPRECATED!!!
+  // if(process.browser){ // 브라우저에서 실행될 때
+
+  // 2. 두 번째 방법
+  if (typeof window !== "undefined") {
+    // "프론트엔드서버프로그램(yarn dev)이 아니라면"; 브라우저에서 실행될 때는 윈도우가 있는 것
+    console.log("여기는 브라우저다");
+    const myLocalStorageAccessToken = localStorage.getItem("accessToken");
+    setAccessToken(myLocalStorageAccessToken || ""); // 있으면 넣고 없으면 초깃값(빈문자열)
+  } else {
+    // "프론트엔드서버라면"
+    console.log("여기는 프론트엔드 서버(yarn dev)다");
+  }
+
+  // 3. 세 번째 방법
+  useEffect(() => {
+    const myLocalStorageAccessToken = localStorage.getItem("accessToken");
+    setAccessToken(myLocalStorageAccessToken || ""); // 있으면 넣고 없으면 초깃값(빈문자열)
+  }, []);
+
+  // 프리렌더링 시 문제되는 코드!!!
+  // const myLocalStorageAccessToken = localStorage.getItem("accessToken");
+  // setAccessToken(myLocalStorageAccessToken || ""); // 있으면 넣고 없으면 초깃값(빈문자열)
+
   const uploadLink = createUploadLink({
     uri: "http://backend06.codebootcamp.co.kr/graphql",
     // uri: "http://example.codebootcamp.co.kr/graphql",
