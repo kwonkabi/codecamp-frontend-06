@@ -1,3 +1,5 @@
+// 목적 별로 스토어도 나누자!
+
 import { atom } from "recoil";
 
 export const isEditState = atom({
@@ -8,4 +10,12 @@ export const isEditState = atom({
 export const accessTokenState = atom({
   key: "accessTokenState",
   default: "",
+});
+
+export const userInfoState = atom({
+  key: "userInfoState",
+  default: {
+    email: "",
+    name: "",
+  },
 });

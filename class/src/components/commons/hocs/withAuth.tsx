@@ -10,7 +10,7 @@ export const withAuth = (Component) => (props) => {
     if (!localStorage.getItem("accessToken")) {
       // 로그인이 안 된 상황
       alert("로그인 후 이용 가능합니다.");
-      router.push("/23-04-login-check");
+      router.push("/24-01-login-use-apollo-client");
     }
   }, []);
 
