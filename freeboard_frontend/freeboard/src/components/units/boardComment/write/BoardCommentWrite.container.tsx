@@ -24,7 +24,9 @@ export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
   const [star, setStar] = useState(0);
 
   const [createBoardComment] = useMutation<
+    // response의 타입
     Pick<IMutation, "createBoardComment">,
+    // variable의 타입
     IMutationCreateBoardCommentArgs
   >(CREATE_BOARD_COMMENT);
 

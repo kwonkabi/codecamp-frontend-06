@@ -165,6 +165,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       !isChangedFiles
     ) {
       alert("수정한 내용이 없습니다.");
+      // 함수 종료
       return;
     }
 
