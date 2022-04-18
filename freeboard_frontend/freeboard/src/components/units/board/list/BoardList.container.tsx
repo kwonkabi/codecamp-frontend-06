@@ -33,7 +33,7 @@ export default function BoardList() {
     // document.getElementById("bbb").value
     // '만약에 event.target이 태그의 자식이라면' = '내가 클릭한 게 태그라면'
     if (event.target instanceof Element)
-      router.push(`/boards/${event.target.id}`);
+      router.push(`/boards/${event.currentTarget.id}`);
   };
 
   function onChangeKeyword(value: string) {
