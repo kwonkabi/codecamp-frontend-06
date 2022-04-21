@@ -50,10 +50,10 @@ export default function WebEditorPage() {
           },
         },
       });
-      // router.push(`/27-04-web-editor-detail/${result.data.createBoard._id}`);
-      router.push(
-        `/27-05-web-editor-detail-hydration/${result.data.createBoard._id}`
-      );
+      router.push(`/27-04-web-editor-detail/${result.data.createBoard._id}`);
+      // router.push(
+      //   `/27-05-web-editor-detail-hydration/${result.data.createBoard._id}`
+      // );
     } catch (error) {
       Modal.error({ content: error.message });
     }
