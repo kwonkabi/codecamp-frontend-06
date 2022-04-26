@@ -3,18 +3,22 @@ import axios from "axios";
 export default function CallbackPromiseAsyncAwaitPage() {
   const onClickCallback = () => {
     const aaa = new XMLHttpRequest();
-    aaa.open("get", "http://numbersapi.com/random?min=1&max=200");
-    aaa.send();
+    aaa.open("get", "http://numbersapi.com/random?min=1&max=200"); // 방식과 주소 넣기
+    aaa.send(); // 요청
     aaa.addEventListener("load", (res) => {
       // 인자로 들어가는 함수: 콜백 함수
-      const num = res.target.response.split(" ")[0]; // 167(랜덤 숫자)
 
+      // 랜덤 숫자 뽑기
+      const num = res.target.response.split(" ")[0]; //  167(랜덤 숫자)
+
+      // 랜덤 숫자와 일치하는 게시글 번호 조회
       const bbb = new XMLHttpRequest();
-      bbb.open("get", `http://koreanjson.com/${num}`);
-      bbb.send();
+      bbb.open("get", `http://koreanjson.com/posts/${num}`);
+      bbb.send(); // 요청
       bbb.addEventListener("load", (res) => {
         const userId = res.target.response.UserId;
 
+        // 그 게시글 작성자가 쓴 다른 글 조회
         const ccc = new XMLHttpRequest();
         ccc.open("get", `http://koreanjson.com/posts?userId=${userId}`);
         ccc.send();
