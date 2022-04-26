@@ -25,13 +25,13 @@ export default function QuizCallbackPromiseAsyncAwaitPage() {
       bbb.open("get", `http://koreanjson.com/posts/${num}`);
       bbb.send();
       bbb.addEventListener("load", (res) => {
-        const userId = res.target.response["UserId"];
+        const userId = JSON.parse(res.target.response)["UserId"];
 
         const ccc = new XMLHttpRequest();
         ccc.open("get", `http://koreanjson.com/posts?userId=${userId}`);
         ccc.send();
         ccc.addEventListener("load", (res) => {
-          setData(res.target.response);
+          setData(JSON.parse(res.target.response));
         });
       });
     });
