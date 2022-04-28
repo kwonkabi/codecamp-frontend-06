@@ -18,5 +18,6 @@ export const checkFileValidation = (file?: File) => {
     return false;
   }
 
+  // 아무 문제가 없으면
   return true;
 };

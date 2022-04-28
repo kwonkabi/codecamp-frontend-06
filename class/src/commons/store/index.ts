@@ -1,15 +1,19 @@
-// 목적 별로 스토어도 나누자!
-
-import { atom } from "recoil";
+import { atom, selector } from "recoil";
+import { getAccessToken } from "../libraries/getAccessToken";
 
 export const isEditState = atom({
-  key: "isEditState", // state의 이름; 글로벌스테이트는 하나라서 키로 구분함
-  default: false, // useState의 초깃값이었던 것
+  key: "isEditState",
+  default: false,
 });
 
 export const accessTokenState = atom({
   key: "accessTokenState",
   default: "",
+});
+
+export const isLoadedState = atom({
+  key: "isLoadedState",
+  default: true,
 });
 
 export const userInfoState = atom({
@@ -23,4 +27,12 @@ export const userInfoState = atom({
 export const visitedPageState = atom({
   key: "visitedPageState",
   default: "/",
+});
+
+export const restoreAccessTokenLoadable = selector({
+  key: "restoreAccessTokenLoadable",
+  get: async () => {
+    const newAccessToken = await getAccessToken();
+    return newAccessToken;
+  },
 });
