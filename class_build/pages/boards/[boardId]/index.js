@@ -36,7 +36,7 @@ export const getServerSideProps = async (context) => {
   // const { data } useQuery(FETCH_BOARD); // 이건 안 됨!
 
   const result = await request(
-    "https://backend06/codebootcamp.co.kr/graphql",
+    "https://backend06.codebootcamp.co.kr/graphql",
     FETCH_BOARD,
     { boardId: context.query.boardId }
   );
