@@ -6,6 +6,7 @@ const NAVIGATION_MENUS = [
   { name: "BOARD", page: "/boards" },
   { name: "FIREBASE_BOARD", page: "/myfirebase" },
   { name: "RANDOM DOGGIE", page: "/randomdoggie" },
+  { name: "2nd-HAND MARKET", page: "/market" },
   { name: "MYPAGE", page: "/mypages" },
 ];
 

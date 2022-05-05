@@ -15,10 +15,18 @@ export default function BoardListUI(props: IBoardListUIProps) {
       />
       <S.TableTop />
       <S.Row>
-        <S.ColumnHeaderBasic>ID</S.ColumnHeaderBasic>
-        <S.ColumnHeaderTitle>제목</S.ColumnHeaderTitle>
-        <S.ColumnHeaderBasic>작성자</S.ColumnHeaderBasic>
-        <S.ColumnHeaderBasic>날짜</S.ColumnHeaderBasic>
+        <S.ColumnHeaderBasic style={{ fontWeight: "bold" }}>
+          ID
+        </S.ColumnHeaderBasic>
+        <S.ColumnHeaderTitle style={{ fontWeight: "bold" }}>
+          제목
+        </S.ColumnHeaderTitle>
+        <S.ColumnHeaderBasic style={{ fontWeight: "bold" }}>
+          작성자
+        </S.ColumnHeaderBasic>
+        <S.ColumnHeaderBasic style={{ fontWeight: "bold" }}>
+          날짜
+        </S.ColumnHeaderBasic>
       </S.Row>
       {props.data?.fetchBoards.map((el) => (
         <S.Row key={el._id}>

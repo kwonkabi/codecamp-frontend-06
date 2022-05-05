@@ -5,6 +5,7 @@ import LayoutBanner from "./banner/LayoutBanner.container";
 import LayoutNavigation from "./navigation/LayoutNavigation.container";
 import { useRouter } from "next/router";
 import LayoutFooter from "./footer/LayoutFooter.container";
+import LayoutSidebar from "./sidebar/LayoutSidebar.container";
 
 const Body = styled.div`
   height: 500px;
@@ -30,12 +31,17 @@ export default function Layout(props: ILayoutProps) {
   const router = useRouter();
   const isHidden = HIDDEN_PAGE.includes(router.asPath);
 
+  let isMarket;
+  if (router.asPath.includes("market")) {
+    isMarket = true;
+  }
+
   return (
     <>
       {!isHidden && <LayoutHeader />}
       {!isHidden && <LayoutBanner />}
       {!isHidden && <LayoutNavigation />}
-      {/* <LayoutSidebar>Sidebar</LayoutSidebar> */}
+      {!isHidden && isMarket && <LayoutSidebar />}
       <Body>{props.children}</Body>
       {!isHidden && <LayoutFooter />}
     </>
