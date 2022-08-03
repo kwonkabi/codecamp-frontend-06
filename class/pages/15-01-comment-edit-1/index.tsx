@@ -1,3 +1,5 @@
+// 한 번에 한 개의 게시글만 수정할 수 있음
+
 import { useQuery, gql } from "@apollo/client";
 import styled from "@emotion/styled";
 import { useState } from "react";
