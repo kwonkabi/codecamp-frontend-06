@@ -13,6 +13,7 @@ const FETCH_BOARDS = gql`
   }
 `;
 
+// Pagination 컴포넌트 재사용이 목적이기 때문에 (Pagination 컴포넌트에 존재할 필요가 없어서) 끌어올려진 것뿐이지, 자식 컴포넌트들에서 공통으로 사용하기 위함이 아님!!
 const FETCH_BOARDS_COUNT = gql`
   query fetchBoardsCount {
     fetchBoardsCount
