@@ -32,7 +32,6 @@ export default function LoginPage() {
   const [loginUser] = useMutation(LOGIN_USER);
 
   const client = useApolloClient();
-
   const onChangeEmail = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
@@ -69,7 +68,8 @@ export default function LoginPage() {
     setAccessToken(accessToken);
     setUserInfo(userInfo);
     localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("userInfo", JSON.stringify(userInfo)); // 객체는 로컬/세션 스토리지에 못 들어감 주의! 문자열로 바꿔서 넣어주자!
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    // 객체는 로컬/세션 스토리지에 못 들어감 주의! 문자열로 바꿔서 넣어주자!
 
     // 4. 로그인 성공 페이지로 이동하기
     alert("로그인에 성공하였습니다!");

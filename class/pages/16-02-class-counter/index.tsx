@@ -6,7 +6,7 @@ interface IState {
   count: number;
 }
 
-// 객체지향 프로그래밍에서 사용하는 단순한 클래스를 '컴포넌트 기능으로 확장'하여 사용하기: state나 render 같은 것들은 class가 아니라 리액트에 있는 기능이다!
+// 객체지향 프로그래밍에서 사용하는 단순한 클래스를 '컴포넌트 기능으로 확장'하여 사용하기: state나 render 같은 것들은 class가 아니라 리액트에 있는 기능이다! -> 컴포넌트 기능을 가진 클래스가 됨
 export default class CounterPage extends Component {
   state = {
     // state라는 이름은 못 바꿈!

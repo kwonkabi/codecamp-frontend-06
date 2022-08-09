@@ -30,7 +30,8 @@ export default function WebEditorPage() {
     // register로 등록하지 않고, 강제로 값을 넣어주는 기능!!
     // 칸을 비워도 <h1><br></h1>얘가 들어 있기 때문
     setValue("contents", value === "<h1><br></h1>" ? "" : value);
-    // 내용:태그에 들은 onChange는 가짜야! onChange 됐다고 react-hook-form에 알려주는 기능!!
+
+    // 내용: 태그에 들은 onChange는 가짜야! onChange 됐다고 react-hook-form에 알려주는 기능!!
     trigger("contents");
   };
 

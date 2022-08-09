@@ -41,6 +41,8 @@ export default function LoginPage() {
     console.log(accessToken);
 
     // 2. 유저 정보 받아오기
+    // (useQuery는 여기서 못함, 컴포넌트가 만들어질 때 자동으로 요청이 가고, 응답을 받아와서 변수에 담기게 됨)
+    // 원하는 곳에서 받아와서 그리려면 useApolloClient 사용!!
 
     // 3. 글로벌 스테이트에 유저 정보 저장하기
     setAccessToken(accessToken);

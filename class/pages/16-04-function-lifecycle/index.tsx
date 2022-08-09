@@ -1,7 +1,7 @@
 // 16-03-class-lifecycle의 함수형 버전
 // 16-03-class-lifecycle과 비교하며 보기!!!
 
-import { Component, createRef, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 
 interface IState {

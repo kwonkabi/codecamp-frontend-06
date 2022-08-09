@@ -36,6 +36,8 @@ export default function ApolloCacheStatePage() {
   const onClickDelete = (boardId: string) => async () => {
     // await와 가장 가까운 괄호 앞에 async를 붙여준다!
     // 삭제하기로직
+    // 페이지로 보여줘야 할 때는 어쨌든 정해진 개수만큼 보여줘야 하기 때문에 이 방법 말고 refetch를 쓰고,
+    // 이 방법은 무한스크롤일 때 사용하면 좋다.
     await deleteBoard({
       variables: { boardId },
       update(cache, { data }) {

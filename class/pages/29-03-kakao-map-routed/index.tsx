@@ -7,11 +7,14 @@ declare const window: typeof globalThis & {
 
 export default function KakaoMapRoutedPage() {
   useEffect(() => {
-    const script = document.createElement("script"); // <script></script>
+    const script = document.createElement("script");
+    // 렌더됐을 때 <script></script> 요소를 만들도록
     script.src =
       "//dapi.kakao.com/v2/maps/sdk.js?appkey=83c9e35a5b2a5ab7a9109abf00e038bb&autoload=false";
+    // 'head 태그의 자식으로 script를 추가해줘'
     document.head.appendChild(script);
 
+    // '스크립트가 로드되면 함수 내부를 실행시켜줘'
     script.onload = () => {
       window.kakao.maps.load(function () {
         const container = document.getElementById("map"); // 지도를 담을 영역의 DOM 레퍼런스

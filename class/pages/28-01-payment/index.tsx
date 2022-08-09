@@ -25,7 +25,7 @@ export default function PaymentPage() {
         buyer_tel: "010-4242-4242",
         buyer_addr: "서울특별시 강남구 신사동",
         buyer_postcode: "01181",
-        m_redirect_url: "http://localhost:3000/28-01-payment",
+        m_redirect_url: "http://localhost:3000/28-01-payment", // 모바일에서는 주소가 바뀌기 때문에 돌아올 곳을 지정해줘야 함
       },
       (rsp: any) => {
         // callback

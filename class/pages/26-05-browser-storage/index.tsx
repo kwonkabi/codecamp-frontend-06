@@ -13,9 +13,11 @@ export default function BrowserStoragePage() {
   };
 
   const onClickLoadCookie = () => {
-    const myCookie = document.cookie;
-
-    console.log(myCookie);
+    const myCookie = document.cookie
+      .split("; ")
+      .filter((el) => el.startsWith("aaa="))[0]
+      .replace("aaa=", "");
+    console.log(myCookie); // 철수
   };
 
   const onClickLoadLocal = () => {

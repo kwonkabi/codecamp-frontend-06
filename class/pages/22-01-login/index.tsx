@@ -6,8 +6,8 @@ import { accessTokenState } from "../../src/commons/store";
 
 const LOGIN_USER = gql`
   mutation loginUser($email: String!, $password: String!) {
+    # 줘야 되는 내용
     loginUser(email: $email, password: $password) {
-      # 줘야 되는 내용
       accessToken # 받아올 내용
     }
   }

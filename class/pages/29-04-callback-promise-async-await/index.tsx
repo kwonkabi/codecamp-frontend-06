@@ -29,7 +29,7 @@ export default function CallbackPromiseAsyncAwaitPage() {
     });
   };
 
-  // 콜백 지옥을 해결하기 위해 프로미스 등장!
+  // 콜백 지옥을 해결하기 위해 프로미스 등장! (프로미스 체이닝으로 해결 )
 
   // new Promise((resolve, reject) => {
   //   // 외부 요청 코드
@@ -70,9 +70,13 @@ export default function CallbackPromiseAsyncAwaitPage() {
       });
     console.log("여기는 5번입니다!!");
   };
+  // 1-5-2-3-4순으로 실행됨
+  // axios는 (마이크로 태스크) 큐로 들어가기 때문
 
+  // 반면 aync/await는 순서가 보장되어 있음 => 직관적이다~!
   const onClickCAsyncawait = async () => {
-    const aaa = await axios.get("http://numbersapi.com/random?min=1&max=200"); // await는 '프로미스'를 기다리는 것!
+    const aaa = await axios.get("http://numbersapi.com/random?min=1&max=200");
+    // await는 '프로미스' 앞에서만 쓸 수 있다.
 
     const bbb = await axios.get("http://numbersapi.com/random?min=1&max=200");
 

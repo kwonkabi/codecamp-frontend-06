@@ -34,7 +34,7 @@ export default function GraphqlMutationPage() {
     // const result = await axios.get("https://koreanjson.com/products/1")
 
     const result = await createBoard({
-      // variables: { inputs.writer, title: inputs.title, contents: inputs.contents }를 스프레드 연산자를 이용해주면 아래와 같다.
+      // variables: { writer: inputs.writer, title: inputs.title, contents: inputs.contents }를 스프레드 연산자를 이용해주면 아래와 같다.
       variables: { ...inputs },
     }); // graphql-api 방식
     console.log(result);

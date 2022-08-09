@@ -1,3 +1,6 @@
+// 서비스 규모가 커지면 분류하는 것이 좋음
+// e.g., boardStore, productStore ...
+
 import { atom, selector } from "recoil";
 import { getAccessToken } from "../libraries/getAccessToken";
 
