@@ -4,6 +4,7 @@
 # 우분투 컴퓨터 다운로드
 # FROM ubuntu:20.04
 
+# 도커 허브에서 다운로드  
 FROM node:14
 
 # 'class_build 안에서 커서 깜빡이게 하고 아래 명령들 실행시켜줘!'
@@ -12,6 +13,7 @@ WORKDIR /class_build/
 # '현재 있는 거 다 복사해서 class_build라는 거 만들어서 넣어줘!'
 # RUN mkdir class_build 굳이 따로 만들 필요 없음
 COPY . /class_build/
+# 누가 실행하든 똑같은 버전이 설치돼야 하기 때문에 여기서 yarn install 해주어야 함
 RUN yarn install
 RUN yarn build:ssr
 # RUN yarn start

@@ -9,6 +9,7 @@ interface IFormValues {
 export default function ReactHookFormPage() {
   const { register, handleSubmit, formState } = useForm();
 
+  // 버튼 중복 클릭 방지 (formState.isSubmitting이 true면 버튼이 disabled되도록)
   formState.isSubmitting;
 
   const onClickSubmit = (data: IFormValues) => {
