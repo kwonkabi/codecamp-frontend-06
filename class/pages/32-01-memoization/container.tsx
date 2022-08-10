@@ -21,7 +21,7 @@ export default function MemoizationContainerPage() {
   //   setCountState((prev) => prev + 1);
   // }, []);
 
-  // useMemo로 useCallback 만들어보기!!!
+  // useMemo로 useCallback 만들어보기!!! (실무에서 사용되진 않음)
   const onClickCountState = useMemo(() => {
     // 리턴하는 값을 기억한다
     return () => {

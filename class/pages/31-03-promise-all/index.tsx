@@ -22,7 +22,7 @@ export default function PromiseAllPage() {
       }, 2000);
     });
     console.log(result3);
-    console.timeEnd("Promise 시작!!!");
+    console.timeEnd("Promise 시작!!!"); // 6초 걸림
   };
 
   const onClickPromiseAll = async () => {
@@ -50,7 +50,7 @@ export default function PromiseAllPage() {
     //   }),
     // ]);
     // console.log(result);
-    // console.timeEnd("PromiseAll 시작!!!");
+    // console.timeEnd("PromiseAll 시작!!!"); // 3초 걸림
 
     // 2. 한방에 확인하는 방법!
     console.time("PromiseAll 시작!!!");
@@ -66,7 +66,7 @@ export default function PromiseAllPage() {
       )
     );
     console.log(result);
-    console.timeEnd("PromiseAll 시작!!!");
+    console.timeEnd("PromiseAll 시작!!!"); // 3초 걸림
   };
 
   return (

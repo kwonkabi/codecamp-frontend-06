@@ -10,6 +10,7 @@ export default function ImageUploadPreviewPage() {
       return;
     }
 
+    // 미리보기로 빠르게 보여주기 (스토리지를 차지하지 않음)
     const fileReader = new FileReader();
     fileReader.readAsDataURL(file); // blob(binary large object) 파일을 읽어서 임시 url 형태로 만든다
     fileReader.onload = (data) => {

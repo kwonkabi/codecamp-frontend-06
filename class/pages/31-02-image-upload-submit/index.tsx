@@ -33,6 +33,7 @@ export default function ImageUploadPreviewPage() {
   >(UPLOAD_FILE);
   const [createBoard] = useMutation(CREATE_BOARD);
 
+  // 미리보기용 임시 이미지 URL 만들기
   const onChangeFile = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) {
@@ -52,9 +53,11 @@ export default function ImageUploadPreviewPage() {
   };
 
   const onClickSumbit = async () => {
+    // 1. 파일 업로드
     const result1 = await uploadFile({ variables: { file: file1 } });
     const imageUrl = result1.data?.uploadFile.url;
 
+    // 2. 위에서 받아온 URL 가지고 뮤테이션 날리기
     const result2 = await createBoard({
       variables: {
         createBoardInput: {
@@ -62,7 +65,7 @@ export default function ImageUploadPreviewPage() {
           password: "1234",
           title: "안녕하세요",
           contents: "20시간을 자야 합니다",
-          images: [imageUrl], // 임시 url을 넣어도 작동은 되지만 용량이 커서 좋은 방법이 아님. 백엔드 들렀다 와서 짧아진 url을 사용!
+          images: [imageUrl], // 임시 url(blob)을 넣어도 작동은 되지만 용량이 커서 좋은 방법이 아님. 백엔드 들렀다 와서 짧아진 url을 사용!
         },
       },
     });

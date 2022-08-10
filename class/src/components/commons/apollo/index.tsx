@@ -82,8 +82,8 @@ export default function ApolloSetting(props) {
             // 3-1. 재발급 받은 accessToken으로 방금 실패한 쿼리 재요청하기
             operation.setContext({
               headers: {
-                ...operation.getContext().headers,
-                Authorization: `Bearer ${newAccessToken}`, // accessToken만 바꿔치기
+                ...operation.getContext().headers, // 기존 헤더를 스프레드 해서 가져오기
+                Authorization: `Bearer ${newAccessToken}`, // accessToken만 새로운 토큰으로 바꿔치기(덮어쓰기)
               },
             });
 
@@ -103,8 +103,10 @@ export default function ApolloSetting(props) {
 
   const client = new ApolloClient({
     link: ApolloLink.from([errorLink, uploadLink]),
+    // errorLink가 들어가고 나서야 apolloSetting이 되는 거라서 그 전에는 graphql-request같은 것들을 사용해줘야 함 (axios나 graphql client를 사용하는 방법, 최근엔 후자를 많이 사용)
     cache: new InMemoryCache(),
   });
 
   return <ApolloProvider client={client}>{props.children}</ApolloProvider>;
+  // client로 내려받은 자식들부터는 useMutation, useQuery를 사용할 수 있게 됨
 }

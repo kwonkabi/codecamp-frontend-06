@@ -50,7 +50,7 @@ export default function ImageUploadPreviewPage() {
       fileReader.readAsDataURL(file); // blob(binary large object) 파일을 읽어서 임시 url 형태로 만든다
       fileReader.onload = (data) => {
         if (typeof data.target?.result === "string") {
-          const tempUrls = [...imageUrls];
+          const tempUrls = [...imageUrls]; // 원본이 변경되면 원본과의 비교를 통한 리렌더가 발생하지 않으므로
           tempUrls[number] = data.target?.result;
           setImageUrls(tempUrls);
 

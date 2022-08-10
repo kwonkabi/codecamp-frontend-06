@@ -1,5 +1,5 @@
 import Head from "next/head";
-// import Image from 'next/image'
+// import Image from 'next/image' // 얘가 있으면 정적파일 안 만들어짐
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
