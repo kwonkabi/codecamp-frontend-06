@@ -48,8 +48,9 @@ export default function BasketPage() {
       return;
     }
     // ----> 혹은, 장바구니에서 빼주는 기능으로 구현할 수도 있음
+    // alert 대신 실행될 내용:
     // const newBaskets = baskets.filter((basketEl: IBoard) => basketEl._id !== el._id);
-    // 이걸 만들어서 localStorage.setItem(newBaskets) 해주면 삭제 가능!!
+    // localStorage.setItem("baskets", JSON.stringify(newBaskets));
 
     // (3. 장바구니에 담기)
     // delete el.__typename // 원본을 건드리는 건 비추
